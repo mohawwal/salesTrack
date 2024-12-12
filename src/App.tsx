@@ -47,10 +47,6 @@ function App() {
 					element: <Dashboard />,
 				},
 				{
-					path: "/profile",
-					element: <Profile />,
-				},
-				{
 					path: "/sales",
 					element: <SalesHome />,
 				},
