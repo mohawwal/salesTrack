@@ -2,7 +2,6 @@ import LeftBar from "./Component/LeftBar";
 import { Navbar } from "./Component/Navbar";
 import { RightBar } from "./Component/RightBar";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Profile from "./pages/Profile";
 import Dashboard from "./pages/dashboardHome/Dashboard";
 import { SidebarProvider } from "./components/ui/sidebar";
 import SalesHome from "./pages/sales/SalesHome";
