@@ -35,7 +35,7 @@ export const Navbar = () => {
 						Dashboard
 					</h1>
 				</button>
-				{toggleNav && <div className="fixed block nv:hidden w-[80%] sm:w-[350px] bg-sidebar-primary-foreground h-full z-10 top-0 left-0 border-r-[2px] border-sidebar-border ">
+				{toggleNav && <div className="fixed block nv:hidden w-[80%] sm:w-[350px] bg-primary-foreground h-full z-10 top-0 left-0 border-r-[2px] border-sidebar-border ">
 					<div className="w-[95%] mx-auto h-full">
 						<SideNav setToggleNav={setToggleNav} />
 					</div>

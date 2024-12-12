@@ -98,7 +98,7 @@ interface SideNavProps {
 
 const SideNav: React.FC<SideNavProps> = ({ setToggleNav }) => {
 	return (
-		<div className="w-full z-50 h-full bg-sidebar-primary-foreground flex flex-col">
+		<div className="w-full z-50 h-full flex flex-col">
 			<div className="w-full flex justify-between items-start">
 				<div className="pt-4 flex items-start gap-1 px-2 text-[14px] font-bold">
 					<Flower2 className="w-6 h-6 pb-1" />
