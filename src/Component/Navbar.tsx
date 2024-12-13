@@ -32,7 +32,7 @@ export const Navbar = () => {
 				<button className="flex flex-row items-center gap-2">
 					<Menu className="p-1 nv:hidden block" onClick={handleToggleNav} />
 					<h1 className="text-[22px] font-bold">
-						Dashboard
+						Dashboard 
 					</h1>
 				</button>
 				{toggleNav && <div className="fixed block nv:hidden w-[80%] sm:w-[350px] bg-primary-foreground h-full z-10 top-0 left-0 border-r-[2px] border-sidebar-border ">
