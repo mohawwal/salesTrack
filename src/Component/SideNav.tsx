@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
 	Calendar,
 	LayoutDashboard,
@@ -18,7 +19,7 @@ import {
 	ScrollText,
 	Sparkles,
 	Flower2,
-	X
+	X,
 } from "lucide-react";
 import UpImg from "../assets/images/upImg.jpg";
 
@@ -44,7 +45,7 @@ import {
 const itemsLayout = [
 	{
 		title: "Sales",
-		url: "#",
+		url: "/sales",
 		icon: SquarePercent,
 	},
 	{
@@ -76,17 +77,17 @@ const itemsLayout = [
 
 const companyStaffs = [
 	{
-		name: "Boss Ltd",
+		name: "Ayomide",
 		type: "Sale",
 		notification: 10,
 	},
 	{
-		name: "Fabbaz Ent.",
+		name: "Kemi",
 		type: "Marking",
 		notification: 12,
 	},
 	{
-		name: "Daniel Shop",
+		name: "Daniel",
 		type: "Tech",
 		notification: 24,
 	},
@@ -107,10 +108,12 @@ const SideNav: React.FC<SideNavProps> = ({ setToggleNav }) => {
 					</div>
 				</div>
 				<button
-					className="w-full flex items-end justify-end pt-1"
+					className="w-[24px] h-[24px] bg-border mt-3 rounded-[5px] flex items-end justify-end"
 					onClick={() => setToggleNav(false)}
 				>
-					<X className="w-4" />
+					<div className="flex h-full w-full items-center justify-center">
+						<X className="w-3" />
+					</div>
 				</button>
 			</div>
 			<SidebarHeader className="w-full flex justify-between items-center flex-row">
@@ -160,10 +163,10 @@ const SideNav: React.FC<SideNavProps> = ({ setToggleNav }) => {
 					<SidebarMenu>
 						<SidebarMenuItem>
 							<SidebarMenuButton asChild>
-								<a className="my-1">
+								<Link to='/products' className="my-1">
 									<LayoutDashboard />
-									<span>Dashboard</span>
-								</a>
+									<span>Products</span>
+								</Link>
 							</SidebarMenuButton>
 						</SidebarMenuItem>
 						<div className="pl-2 pb-1 my-1">
@@ -184,18 +187,17 @@ const SideNav: React.FC<SideNavProps> = ({ setToggleNav }) => {
 							</SidebarMenuSub>
 						</div>
 						{itemsLayout.map((item) => (
-							<SidebarMenuItem key={item.title}>
-								<SidebarMenuButton asChild>
-									<a
-										href={item.url}
-										className="my-1"
-									>
-										<item.icon />
-										<span>{item.title}</span>
-									</a>
-								</SidebarMenuButton>
-							</SidebarMenuItem>
-						))}
+									<SidebarMenuItem key={item.title}>
+										<SidebarMenuButton asChild>
+											<Link to={item.url}
+												className="my-1 cursor-pointer"
+											>
+												<item.icon />
+												<span>{item.title}</span>
+											</Link>
+										</SidebarMenuButton>
+									</SidebarMenuItem>
+								))}
 					</SidebarMenu>
 				</SidebarGroupContent>
 			</SidebarGroup>

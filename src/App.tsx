@@ -5,6 +5,9 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Dashboard from "./pages/dashboardHome/Dashboard";
 import { SidebarProvider } from "./components/ui/sidebar";
 import SalesHome from "./pages/sales/SalesHome";
+import { Home } from "./pages/home/Home";
+import Products from "./pages/products/Products";
+import AddProduct from "./pages/products/AddProduct";
 
 function App() {
 	// Layout Component
@@ -35,15 +38,23 @@ function App() {
 	const router = createBrowserRouter([
 		{
 			path: "/",
+			element: <Home />,
+		},
+		{
+			path: "/",
 			element: <Layout />,
 			children: [
 				{
-					path: "/",
+					path: "/dashboard",
 					element: <Dashboard />,
 				},
 				{
-					path: "/dashboard",
-					element: <Dashboard />,
+					path: "/products",
+					element: <Products />,
+				},
+				{
+					path: "/addProduct",
+					element: <AddProduct />,
 				},
 				{
 					path: "/sales",

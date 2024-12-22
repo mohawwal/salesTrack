@@ -85,6 +85,7 @@ export const RightBar = () => {
 			status: "Active",
 		},
 	];
+	console.log(activityMsg.length);
 
 	return (
 		<div className="border-l-[1px] border-border h-full p-2">
@@ -102,9 +103,9 @@ export const RightBar = () => {
 								<div className="w-[20px] h-[20px] rounded-full flex items-center justify-center">
 									<msg.icon className="text-gray-600 w-[12px]" />
 								</div>
-								<div className="w-[80%]">
-									<span className="text-[13px] leading-100">{msg.subject}</span>
-									<div className="text-[11px] text-gray-500">{msg.time}</div>
+								<div className="w-[80%] flex flex-col gap-[2px]">
+									<span className="text-[12px] leading-tight">{msg.subject}</span>
+									<div className="text-[10.8px] text-gray-500">{msg.time}</div>
 								</div>
 							</div>
 						))}
@@ -118,18 +119,26 @@ export const RightBar = () => {
 						{activityMsg.map((msg, index) => (
 							<div
 								key={index}
-								className="flex items-center space-x-2 mb-2 w-[100%]"
+								className="flex"
 							>
-								<div className="w-[15%]">
-									<img
-										src={UpImg}
-										alt="profile"
-										className="w-[30px] h-[30px] rounded-full"
-									/>
-								</div>
-								<div className="w-[85%]">
-									<span className="text-[13px]">{msg.subject}</span>
-									<div className="text-[11px] text-gray-500">{msg.time}</div>
+								<div className="flex justify-between gap-2 w-[100%]">
+									<div className="w-[15%] flex flex-col items-center">
+										<img
+											src={UpImg}
+											alt="profile"
+											className="w-[30px] h-[30px] rounded-full"
+										/>
+										<div className="w-full h-full flex items-center justify-center">
+											{index < activityMsg.length - 1 && (
+												<div className="w-[1px] h-[100%] bg-gray-300"></div>
+											)}
+										</div>
+									</div>
+									<div className="w-[85%] h-[100%] flex flex-col items-start justify-start">
+										<span className="text-[12px] leading-tight">{msg.subject}</span>
+										<div className="text-[10.8px] text-gray-500">{msg.time}</div>
+										<div className="w-[full] h-3"></div>
+									</div>
 								</div>
 							</div>
 						))}
@@ -143,7 +152,7 @@ export const RightBar = () => {
 						{contacts.map((contact, index) => (
 							<div
 								key={index}
-								className="flex items-center space-x-2 mb-2 w-[100%]"
+								className="flex items-center mb-1 w-[100%]"
 							>
 								<div className="w-[15%]">
 									<img
@@ -153,8 +162,8 @@ export const RightBar = () => {
 									/>
 								</div>
 								<div className="w-[85%]">
-									<span className="text-[13px]">{contact.name}</span>
-									<div className="text-[11px] text-gray-500">
+									<span className="text-[12px] leading-tight">{contact.name}</span>
+									<div className="text-[10.8px] text-gray-500">
 										{contact.status}
 									</div>
 								</div>

@@ -45,14 +45,14 @@ import { Link } from "react-router-dom";
 
 const itemsLayout = [
 	{
-		title: "Sales",
-		url: "/sales",
-		icon: SquarePercent,
-	},
-	{
 		title: "Calendar",
 		url: "#",
 		icon: Calendar,
+	},
+	{
+		title: "Sales",
+		url: "/sales",
+		icon: SquarePercent,
 	},
 	{
 		title: "Report",
@@ -172,18 +172,18 @@ const LeftBar = () => {
 									<SidebarMenuButton asChild>
 										<a className="my-1">
 											<LayoutDashboard />
-											<Link to="/" >Dashboard</Link>
+											<Link to="/products" >Products</Link>
 										</a>
 									</SidebarMenuButton>
 								</SidebarMenuItem>
 								<div className="pl-2 pb-1 my-1">
-									<p className="text-[11px]">CO-WORKERS</p>
+									<p className="text-[12px]">CO-WORKERS</p>
 									<SidebarMenuSub>
 										{companyStaffs.map((staffs) => (
 											<SidebarMenuSubItem>
 												<SidebarMenuItem>
 													<SidebarMenuButton>
-														<p className="text-[11.5px]">{staffs.name}</p>
+														<p className="text-[12px]">{staffs.name}</p>
 														<SidebarMenuBadge>
 															{staffs.notification}
 														</SidebarMenuBadge>

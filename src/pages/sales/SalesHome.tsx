@@ -1,10 +1,8 @@
 import { SalesTable } from "./SalesTable";
-import AddSales from "./AddSales";
 
 const SalesHome = () => {
 	return (
-		<div>
-			<AddSales/>
+		<div className=" mx-2">
 			<SalesTable />
 		</div>
 	);
