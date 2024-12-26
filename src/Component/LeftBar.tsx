@@ -1,5 +1,5 @@
 import {
-	Calendar,
+	//Calendar,
 	LayoutDashboard,
 	SquarePercent,
 	Inbox,
@@ -15,9 +15,11 @@ import {
 	CreditCard,
 	Bell,
 	LogOut,
-	ScrollText,
+	//ScrollText,
 	Sparkles,
 	Flower2,
+	BoomBox,
+	Truck,
 } from "lucide-react";
 import {
 	Sidebar,
@@ -44,15 +46,25 @@ import UpImg from "../assets/images/upImg.jpg";
 import { Link } from "react-router-dom";
 
 const itemsLayout = [
+	// {
+	// 	title: "Calendar",
+	// 	url: "#",
+	// 	icon: Calendar,
+	// },
 	{
-		title: "Calendar",
-		url: "#",
-		icon: Calendar,
+		title: "Products",
+		url: "/products",
+		icon: BoomBox,
 	},
 	{
 		title: "Sales",
 		url: "/sales",
 		icon: SquarePercent,
+	},
+	{
+		title: "Supplier",
+		url: "/sales",
+		icon: Truck,
 	},
 	{
 		title: "Report",
@@ -64,11 +76,11 @@ const itemsLayout = [
 		url: "#",
 		icon: Inbox,
 	},
-	{
-		title: "Audit",
-		url: "#",
-		icon: ScrollText,
-	},
+	// {
+	// 	title: "Audit",
+	// 	url: "#",
+	// 	icon: ScrollText,
+	// },
 	{
 		title: "Settings",
 		url: "#",
@@ -170,10 +182,10 @@ const LeftBar = () => {
 							<SidebarMenu>
 								<SidebarMenuItem>
 									<SidebarMenuButton asChild>
-										<a className="my-1">
+										<Link to="/dashboard" className="my-1">
 											<LayoutDashboard />
-											<Link to="/products" >Products</Link>
-										</a>
+											<div>Dashboard</div>
+										</Link>
 									</SidebarMenuButton>
 								</SidebarMenuItem>
 								<div className="pl-2 pb-1 my-1">

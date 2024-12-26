@@ -16,11 +16,15 @@ import {
 import { useTheme } from "../context/ThemeContext";
 import { useState } from "react";
 import SideNav from "./SideNav";
+import { useLocation } from "react-router-dom";
 
 export const Navbar = () => {
 	const { setTheme } = useTheme();
+	const location = useLocation()
+	const pageName = location.pathname.slice(1).split("/")[0]
 
 	const [toggleNav, setToggleNav] = useState(false)
+
 
 	const handleToggleNav = ()  => {
 		setToggleNav(!toggleNav)
@@ -31,8 +35,8 @@ export const Navbar = () => {
 			<div className="border-b relative border-gray-200 px-4 py-4 md:px-6 flex justify-between">
 				<div className="flex flex-row items-center gap-2">
 					<Menu className="p-1 nv:hidden block cursor-pointer" onClick={handleToggleNav} />
-					<h1 className="text-[22px] font-bold">
-						Dashboard 
+					<h1 className="text-[22px] font-bold capitalize">
+						{pageName}
 					</h1>
 				</div>
 				{toggleNav && <div className="fixed block nv:hidden w-[100%] sm:w-[350px] bg-primary-foreground h-full z-10 top-0 left-0 border-r-[2px] border-sidebar-border ">

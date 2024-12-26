@@ -6,8 +6,8 @@ import Dashboard from "./pages/dashboardHome/Dashboard";
 import { SidebarProvider } from "./components/ui/sidebar";
 import SalesHome from "./pages/sales/SalesHome";
 import { Home } from "./pages/home/Home";
-import Products from "./pages/products/Products";
-import AddProduct from "./pages/products/AddProduct";
+import Products from "./pages/products/products";
+import AddProduct from "./pages/products/addProduct";
 
 function App() {
 	// Layout Component
