@@ -34,19 +34,19 @@ export const Navbar = () => {
 		<div className="fixed z-10 w-full h-18 nv:w-[calc(100%-16rem)] bg-background">
 			<div className="border-b relative border-gray-200 px-4 py-4 md:px-6 flex justify-between">
 				<div className="flex flex-row items-center gap-2">
-					<Menu className="p-1 nv:hidden block cursor-pointer" onClick={handleToggleNav} />
+					<Menu className="w-6 h-6 p-1 nv:hidden block cursor-pointer hover:bg-border rounded-md" onClick={handleToggleNav} />
 					<h1 className="text-[22px] font-bold capitalize">
 						{pageName}
 					</h1>
 				</div>
-				{toggleNav && <div className="fixed block nv:hidden w-[100%] sm:w-[350px] bg-primary-foreground h-full z-10 top-0 left-0 border-r-[2px] border-sidebar-border ">
+				{toggleNav && <div className="fixed block nv:hidden w-[85%] sm:w-[350px] bg-primary-foreground h-full z-10 top-0 left-0 border-r-[2px] border-sidebar-border ">
 					<div className="w-[95%] mx-auto h-full">
 						<SideNav setToggleNav={setToggleNav} />
 					</div>
 				</div>}
 				<div className="flex flex-row items-center relative">
 					<div className="flex items-center mr-6">
-						<Search className="sm:foreground sm:absolute sm:bg-inherit sm:text-gray-400 sm:p-0 p-[3px] sm:h-[20px] sm:w-[20px] sm:pl-[5px] text-foreground w-[23px]" />
+						<Search className="sm:foreground sm:absolute sm:bg-inherit sm:text-gray-400 sm:p-0 p-[3px] sm:h-[18px] sm:w-[20px] sm:pl-[5px] text-foreground w-[23px]" />
 						<input
 							type="text"
 							placeholder="search..."

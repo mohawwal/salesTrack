@@ -1,4 +1,12 @@
-import { Filter } from "lucide-react";
+import {
+	Filter,
+	CloudDownload,
+	Dot,
+	CircleOff,
+	Loader,
+	Truck,
+	ShoppingBag,
+} from "lucide-react";
 import {
 	Table,
 	TableBody,
@@ -10,169 +18,276 @@ import {
 } from "../../components/ui/table";
 
 export const SalesTable = () => {
-	// const sold = [
-	// 	{
-	// 		invoiceN0: "1",
-	// 		name: "Wireless Mouse",
-	// 		Status: "Paid",
-	// 		Amount: 25.99,
-	// 		stock: 50,
-	// 		sku: "WM-001",
-	// 		supplier: "TechWorld Supplies",
-	// 		status: "Available",
-	// 		discount: 10,
-	// 		dateAdded: "2024.Dec.01",
-	// 	},
-	// 	{
-	// 		invoiceN0: "2",
-	// 		name: "Running Shoes",
-	// 		Status: "Deposit",
-	// 		Amount: 49.99,
-	// 		stock: 20,
-	// 		sku: "RS-002",
-	// 		supplier: "FitGear Inc.",
-	// 		status: "Available",
-	// 		discount: 5,
-	// 		dateAdded: "2024.Oct.28",
-	// 	},
-	// 	{
-	// 		invoiceN0: "3",
-	// 		name: "Bluetooth Headphones",
-	// 		Status: "Paid",
-	// 		Amount: 89.99,
-	// 		stock: 15,
-	// 		sku: "BH-003",
-	// 		supplier: "SoundHub",
-	// 		status: "Available",
-	// 		discount: 15,
-	// 		dateAdded: "2024.Oct.15",
-	// 	},
-	// 	{
-	// 		invoiceN0: "4",
-	// 		name: "Desk Lamp",
-	// 		Status: "Paid",
-	// 		Amount: 19.99,
-	// 		stock: 100,
-	// 		sku: "DL-004",
-	// 		supplier: "BrightLights Co.",
-	// 		status: "Available",
-	// 		discount: null,
-	// 		dateAdded: "2024.Oct.10",
-	// 	},
-	// 	{
-	// 		invoiceN0: "5",
-	// 		name: "Yoga Mat",
-	// 		Status: "Paid",
-	// 		Amount: 29.99,
-	// 		stock: 35,
-	// 		sku: "YM-005",
-	// 		supplier: "ZenGear",
-	// 		status: "Available",
-	// 		discount: 10,
-	// 		dateAdded: "2024.Oct.05",
-	// 	},
-	// 	{
-	// 		invoiceN0: "6",
-	// 		name: "Coffee Mug",
-	// 		Status: "Paid",
-	// 		Amount: 12.99,
-	// 		stock: 60,
-	// 		sku: "CM-006",
-	// 		supplier: "BrewEssentials",
-	// 		status: "Available",
-	// 		discount: 0,
-	// 		dateAdded: "2024.May.30",
-	// 	},
-	// 	{
-	// 		invoiceN0: "7",
-	// 		name: "Gaming Chair",
-	// 		Status: "Deposit",
-	// 		Amount: 199.99,
-	// 		stock: 0,
-	// 		sku: "GC-007",
-	// 		supplier: "GameStation",
-	// 		status: "OOS",
-	// 		discount: 20,
-	// 		dateAdded: "2024.May.25",
-	// 	},
-	// 	{
-	// 		invoiceN0: "8",
-	// 		name: "Smartwatch",
-	// 		Status: "Paid",
-	// 		Amount: 129.99,
-	// 		stock: 10,
-	// 		sku: "SW-008",
-	// 		supplier: "NextGen Gadgets",
-	// 		status: "Available",
-	// 		discount: 15,
-	// 		dateAdded: "2024.May.20",
-	// 	},
-	// 	{
-	// 		invoiceN0: "9",
-	// 		name: "Water Bottle",
-	// 		Status: "Paid",
-	// 		Amount: 9.99,
-	// 		stock: 200,
-	// 		sku: "WB-009",
-	// 		supplier: "HydroPlus",
-	// 		status: "Available",
-	// 		discount: 5,
-	// 		dateAdded: "2024.Apr.15",
-	// 	},
-	// ]
-	
+	const soldGoods = [
+		{
+			Invoice: "INV001",
+			ProductName: "Wireless Mouse",
+			Buyer: "Pannal",
+			Quantity: 2,
+			Status: "Delivered",
+			PaymentMethod: "Credit Card",
+			TnxReceipt: true,
+			Deposit: 0,
+			Balance: 0,
+			Receipt: true,
+			Mode: "Order",
+			Amount: 29965.99,
+			Seller: "Femi",
+			Date: "2024-Oct-15",
+		},
+		{
+			Invoice: "INV002",
+			ProductName: "Smartwatch",
+			Buyer: "Sarah Johnson",
+			Quantity: 1,
+			Status: "pickUp",
+			PaymentMethod: "PayPal",
+			TnxReceipt: false,
+			Deposit: 0,
+			Balance: 0,
+			Receipt: true,
+			Mode: "Pick-Up",
+			Amount: 198659.99,
+			Seller: "Wally",
+			Date: "2024-Oct-16",
+		},
+		{
+			Invoice: "INV003",
+			ProductName: "Power Bank",
+			Buyer: "Michael Lee",
+			Quantity: 3,
+			Status: "Delivered",
+			PaymentMethod: "Bank Transfer",
+			TnxReceipt: true,
+			Deposit: 0,
+			Balance: 0,
+			Receipt: true,
+			Mode: "Order",
+			Amount: 145439.97,
+			Seller: "Wally",
+			Date: "2024-Oct-17",
+		},
+		{
+			Invoice: "INV004",
+			ProductName: "Laptop Bag",
+			Buyer: "Emily Chen",
+			Quantity: 1,
+			Status: "Pending",
+			PaymentMethod: "Cash on Delivery",
+			TnxReceipt: false,
+			Deposit: 4900,
+			Balance: 2000,
+			Receipt: false,
+			Mode: "Pick-up",
+			Amount: 7099.99,
+			Seller: "Dammy",
+			Date: "2024-Oct-18",
+		},
+		{
+			Invoice: "INV005",
+			ProductName: "Headphones",
+			Buyer: "David Kim",
+			Quantity: 2,
+			Status: "Delivered",
+			PaymentMethod: "Stripe",
+			TnxReceipt: true,
+			Deposit: 0,
+			Balance: 0,
+			Receipt: true,
+			Mode: "Order",
+			Amount: 244359.98,
+			Seller: "Femi",
+			Date: "2024-Oct-19",
+		},
+		{
+			Invoice: "INV006",
+			ProductName: "Smart Speaker",
+			Buyer: "Lisa Nguyen",
+			Quantity: 1,
+			Status: "Delivered",
+			PaymentMethod: "Apple Pay",
+			TnxReceipt: true,
+			Deposit: 0,
+			Balance: 0,
+			Receipt: true,
+			Mode: "Order",
+			Amount: 399757,
+			Seller: "Femi",
+			Date: "2024-Oct-20",
+		},
+		{
+			Invoice: "INV007",
+			ProductName: "Gaming Keyboard",
+			Buyer: "Chris Brown",
+			Quantity: 1,
+			Status: "pickUp",
+			PaymentMethod: "Google Pay",
+			TnxReceipt: false,
+			Deposit: 0,
+			Balance: 0,
+			Receipt: true,
+			Mode: "Order",
+			Amount: 29999,
+			Seller: "Wally",
+			Date: "2024-Oct-21",
+		},
+		{
+			Invoice: "INV008",
+			ProductName: "Tablet",
+			Buyer: "Rebecca Davis",
+			Quantity: 1,
+			Status: "Delivered",
+			PaymentMethod: "Transfer",
+			TnxReceipt: true,
+			Deposit: 0,
+			Balance: 0,
+			Receipt: true,
+			Mode: "Order",
+			Amount: 49999,
+			Seller: "Ayo",
+			Date: "2024-Oct-22",
+		},
+		{
+			Invoice: "INV009",
+			ProductName: "Power Cord",
+			Buyer: "Kevin White",
+			Quantity: 5,
+			Status: "Delivered",
+			PaymentMethod: "NFC",
+			TnxReceipt: true,
+			Deposit: 0,
+			Balance: 0,
+			Receipt: true,
+			Mode: "Order",
+			Amount: 49095,
+			Seller: "Ayo",
+			Date: "2024-Oct-23",
+		},
+		{
+			Invoice: "INV010",
+			ProductName: "Smartwatch Band",
+			Buyer: "Amanda Martin",
+			Quantity: 1,
+			Status: "Pending",
+			PaymentMethod: "Cryptocurrency",
+			TnxReceipt: false,
+			Deposit: 0,
+			Balance: 0,
+			Receipt: true,
+			Mode: "Order",
+			Amount: 291199,
+			Seller: "Femi",
+			Date: "2024-Oct-24",
+		},
+	];
+
 	return (
 		<div>
-			<span className="flex items-center justify-center gap-1 hover:bg-border w-6 h-6 rounded-md">
+			<span className="flex py-5 items-center justify-center gap-1 hover:bg-border w-6 h-6 rounded-md">
 				<Filter className="w-4 cursor-pointer" />
 			</span>
 			<Table>
-				<TableCaption>A list of your recent invoices.</TableCaption>
+				<TableCaption className="text-[12px]">
+					List Of The Product Sold.
+				</TableCaption>
 				<TableHeader>
-					<TableRow>
-						<TableHead className="w-[100px]">Invoice</TableHead>
-						<TableHead>Status</TableHead>
-						<TableHead>Method</TableHead>
-						<TableHead className="text-right">Amount</TableHead>
-						<TableHead className="text-center">Edit</TableHead>
+					<TableRow className="text-[13px]">
+						<TableHead className="px-3 ">Invoice</TableHead>
+						<TableHead className="px-3 w-[150px]">Product Name</TableHead>
+						<TableHead className="px-3 w-[150px]">Buyer</TableHead>
+						<TableHead className="px-3 w-[100px]">Qty</TableHead>
+						<TableHead className="px-3">Status</TableHead>
+						<TableHead className="px-3">Method</TableHead>
+						<TableHead className="px-3 w-[100px]">Tnx Receipt</TableHead>
+						<TableHead className="px-3 w-[150px] text-center">Mode</TableHead>
+						<TableHead className="px-3">Deposit</TableHead>
+						<TableHead className="px-3">Balance</TableHead>
+						<TableHead className="px-3">Amount</TableHead>
+						<TableHead className="px-3 w-[200px]">seller</TableHead>
+						<TableHead className="px-3 w-[100px]">Date</TableHead>
 					</TableRow>
 				</TableHeader>
 				<TableBody>
-					<TableRow>
-						<TableCell className="font-medium">INV001</TableCell>
-						<TableCell>Paid</TableCell>
-						<TableCell>Credit Card</TableCell>
-						<TableCell className="text-right">$250.00</TableCell>
-						<TableCell className="cursor-pointer text-center text-primary">Edit</TableCell>
-					</TableRow>
-					<TableRow>
-						<TableCell className="font-medium">INV002</TableCell>
-						<TableCell>Paid</TableCell>
-						<TableCell>Credit Card</TableCell>
-						<TableCell className="text-right">$250.00</TableCell>
-						<TableCell className="cursor-pointer text-center text-primary">Edit</TableCell>
-					</TableRow>
-					<TableRow>
-						<TableCell className="font-medium">INV003</TableCell>
-						<TableCell>Paid</TableCell>
-						<TableCell>Credit Card</TableCell>
-						<TableCell className="text-right">$250.00</TableCell>
-						<TableCell className="cursor-pointer text-center text-primary">Edit</TableCell>
-					</TableRow>
-					<TableRow>
-						<TableCell className="font-medium">INV004</TableCell>
-						<TableCell>Paid</TableCell>
-						<TableCell>Cash</TableCell>
-						<TableCell className="text-right">$250.00</TableCell>
-						<TableCell className="cursor-pointer text-center text-primary">Edit</TableCell>
-					</TableRow>
-					<TableRow>
-						<TableCell className="font-medium">INV005</TableCell>
-						<TableCell>Paid</TableCell>
-						<TableCell>Credit Card</TableCell>
-						<TableCell className="text-right">$250.00</TableCell>
-						<TableCell className="cursor-pointer text-center text-primary">Edit</TableCell>
-					</TableRow>
+					{soldGoods.map((sold) => (
+						<TableRow className="text-[12.6px]">
+							<TableCell className="px-3 font-medium">{sold.Invoice}</TableCell>
+							<TableCell className="px-3 font-bold w-[150px] flex justify-start">
+								{sold.ProductName}
+							</TableCell>
+							<TableCell className="px-3 hover:text-primary hover:underline cursor-pointer text-[12px] w-[150px]">
+								{sold.Buyer}
+							</TableCell>
+							<TableCell className="w-[100px] text-center">
+								{sold.Quantity}
+							</TableCell>
+							<TableCell className="px-3">
+								{sold.Status === "Pending" ? (
+									<div className="flex items-center gap-1">
+										<Loader className="w-3 text-yellow-700" /> Pending
+									</div>
+								) : sold.Status === "Delivered" ? (
+									<div className="flex items-center gap-1">
+										<Truck className="w-3 text-green-700" />
+										Delivered
+									</div>
+								) : sold.Status === "pickUp" ? (
+									<div className="flex items-center gap-1">
+										<ShoppingBag className="w-3 text-blue-700" /> Pick Up
+									</div>
+								) : (
+									sold.Status
+								)}
+							</TableCell>
+							<TableCell className="px-3">{sold.PaymentMethod}</TableCell>
+							<TableCell className="px-3 w-[100px] flex justify-center">
+								<div>
+									{sold.Receipt ? (
+										<CloudDownload className="w-[16px] hover:text-blue-500" />
+									) : (
+										<CircleOff className="w-[16px] hover:text-red-500" />
+									)}
+								</div>
+							</TableCell>
+							<TableCell className="px-3 w-[150px]">
+								<p
+									className={`whitespace-nowrap rounded-3xl text-[11.8px] flex justify-start items-center w-[70px] font-bold text-white ${
+										sold.Mode === "Pick-up" ? "bg-blue-600" : "bg-green-600"
+									}`}
+								>
+									<Dot className="w-4" />
+									{sold.Mode}
+								</p>
+							</TableCell>
+							<TableCell className="px-3 w-[150px]">
+								{sold.Deposit.toLocaleString("en-US", {
+									minimumFractionDigits: 2,
+									maximumFractionDigits: 2,
+								})}
+							</TableCell>
+							<TableCell className="px-3">
+								<span className="text-right">
+									{sold.Balance.toLocaleString("en-US", {
+										minimumFractionDigits: 2,
+										maximumFractionDigits: 2,
+									})}
+								</span>
+							</TableCell>
+							<TableCell className="px-3">
+								<span className="text-right">
+									{sold.Amount.toLocaleString("en-US", {
+										minimumFractionDigits: 2,
+										maximumFractionDigits: 2,
+									})}
+								</span>
+							</TableCell>
+							<TableCell className="px-3 w-[200px] hover:text-primary hover:underline cursor-pointer">
+								{sold.Seller}
+							</TableCell>
+							<TableCell className="px-3 w-[100px] opacity-65 flex">
+								{sold.Date}
+							</TableCell>
+						</TableRow>
+					))}
 				</TableBody>
 			</Table>
 		</div>

@@ -108,17 +108,17 @@ const otherCompany = [
 
 const companyStaffs = [
 	{
-		name: "Boss Ltd",
+		name: "Ayomide",
 		type: "Sale",
 		notification: 10,
 	},
 	{
-		name: "Fabbaz Ent.",
+		name: "Kemi",
 		type: "Marking",
 		notification: 12,
 	},
 	{
-		name: "Daniel Shop",
+		name: "Daniel",
 		type: "Tech",
 		notification: 24,
 	},

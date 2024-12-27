@@ -16,7 +16,7 @@ const Products = () => {
 			id: "1",
 			name: "Wireless Mouse",
 			category: "Electronics",
-			price: 25.99,
+			price: 251099,
 			stock: 50,
 			sku: "WM-001",
 			supplier: "TechWorld Supplies",
@@ -28,11 +28,11 @@ const Products = () => {
 			id: "2",
 			name: "Running Shoes",
 			category: "Apparel",
-			price: 49.99,
-			stock: 20,
+			price: 49599,
+			stock: 2,
 			sku: "RS-002",
 			supplier: "FitGear Inc.",
-			status: "Available",
+			status: "Warning",
 			discount: 5,
 			dateAdded: "2024.Oct.28",
 		},
@@ -40,11 +40,11 @@ const Products = () => {
 			id: "3",
 			name: "Bluetooth Headphones",
 			category: "Electronics",
-			price: 89.99,
-			stock: 15,
+			price: 892399,
+			stock: 0,
 			sku: "BH-003",
 			supplier: "SoundHub",
-			status: "Available",
+			status: "Out Of Stock",
 			discount: 15,
 			dateAdded: "2024.Oct.15",
 		},
@@ -52,7 +52,7 @@ const Products = () => {
 			id: "4",
 			name: "Desk Lamp",
 			category: "Home & Office",
-			price: 19.99,
+			price: 19109,
 			stock: 100,
 			sku: "DL-004",
 			supplier: "BrightLights Co.",
@@ -64,11 +64,11 @@ const Products = () => {
 			id: "5",
 			name: "Yoga Mat",
 			category: "Fitness",
-			price: 29.99,
-			stock: 35,
+			price: 293399,
+			stock: 5,
 			sku: "YM-005",
 			supplier: "ZenGear",
-			status: "Available",
+			status: "Warning",
 			discount: 10,
 			dateAdded: "2024.Oct.05",
 		},
@@ -76,7 +76,7 @@ const Products = () => {
 			id: "6",
 			name: "Coffee Mug",
 			category: "Kitchen",
-			price: 12.99,
+			price: 125499,
 			stock: 60,
 			sku: "CM-006",
 			supplier: "BrewEssentials",
@@ -88,23 +88,23 @@ const Products = () => {
 			id: "7",
 			name: "Gaming Chair",
 			category: "Furniture",
-			price: 199.99,
+			price: 1993499,
 			stock: 0,
 			sku: "GC-007",
 			supplier: "GameStation",
-			status: "OOS",
-			discount: 20,
+			status: "Out Of Stock",
+			discount: 200000,
 			dateAdded: "2024.May.25",
 		},
 		{
 			id: "8",
 			name: "Smartwatch",
 			category: "Electronics",
-			price: 129.99,
+			price: 12999,
 			stock: 10,
 			sku: "SW-008",
 			supplier: "NextGen Gadgets",
-			status: "Available",
+			status: "Warning",
 			discount: 15,
 			dateAdded: "2024.May.20",
 		},
@@ -112,7 +112,7 @@ const Products = () => {
 			id: "9",
 			name: "Water Bottle",
 			category: "Fitness",
-			price: 9.99,
+			price: 14099,
 			stock: 200,
 			sku: "WB-009",
 			supplier: "HydroPlus",
@@ -124,11 +124,11 @@ const Products = () => {
 			id: "10",
 			name: "Notebook",
 			category: "Stationery",
-			price: 4.99,
-			stock: 300,
+			price: 40099,
+			stock: 3,
 			sku: "NB-010",
 			supplier: "WriteWell",
-			status: "Available",
+			status: "Warning",
 			discount: null,
 			dateAdded: "2024.Apr.10",
 		},
@@ -147,8 +147,6 @@ const Products = () => {
 						<TableHead className="w-[200px] px-3">Name</TableHead>
 						<TableHead className="px-3 w-[200px]">Category</TableHead>
 						<TableHead className="px-3 w-[200px]">Price</TableHead>
-						<TableHead className="px-3">Stock</TableHead>
-            <TableHead className="px-3 w-[200px]">Sku</TableHead>
 						<TableHead className="px-3">Supplier</TableHead>
 						<TableHead className="px-3 w-[150px]">Status</TableHead>
 						<TableHead className="px-3">Stock</TableHead>
@@ -157,30 +155,44 @@ const Products = () => {
 				</TableHeader>
 				<TableBody>
 					{products.map((product) => (
-						<TableRow className="text-[12.5px]">
+						<TableRow className="text-[12.2px]">
 							<TableCell className="px-3">{product.id}</TableCell>
 							<TableCell className="px-3 w-[200px] font-bold cursor-pointer">
 								{product.name}
 							</TableCell>
-							<TableCell className="px-3 w-[200px]">{product.category}</TableCell>
-							<TableCell className="px-3 w-[200px]">{product.price}</TableCell>
-							<TableCell className="px-3">{product.stock}</TableCell>
-              <TableCell className="px-3">{product.sku}</TableCell>
-							<TableCell className="px-3 text-primary underline cursor-pointer">{product.supplier}</TableCell>
-							<TableCell className="px-3 w-[150px]">
-              <p className={`px-1 rounded-3xl text-[11px] flex justify-start items-center text-card ${
+							<TableCell className="px-3 w-[200px]">
+								{product.category}
+							</TableCell>
+							<TableCell className="px-3 w-[200px]">
+								<span className="text-right">
+									{product.price.toLocaleString("en-US", {
+										minimumFractionDigits: 2,
+										maximumFractionDigits: 2,
+									})}
+								</span>
+							</TableCell>
+							<TableCell className="px-3 text-primary underline cursor-pointer text-[11px]">
+								{product.supplier}
+							</TableCell>
+							<TableCell className="px-3 w-[95px]">
+								<p
+									className={`whitespace-nowrap font-bold rounded-3xl text-[11px] flex justify-start items-center w-[90px] text-white ${
 										product.status === "Available"
-											? "bg-blue-500"
+											? "bg-green-500"
+                      : product.status === "Warning" ? "bg-yellow-500"
 											: "bg-red-500"
-									}`}>
-              <Dot/>
-								<p>
+									}`}
+								>
+									<Dot className="w-4" />
 									{product.status}
 								</p>
-              </p>
 							</TableCell>
-							<TableCell className="px-3">{product.stock}</TableCell>
-							<TableCell className="px-3 w-[150px] opacity-65">{product.dateAdded}</TableCell>
+							<TableCell className="px-2 flex justify-center">
+								{product.stock}
+							</TableCell>
+							<TableCell className="px-3 w-[150px] opacity-65 ">
+								{product.dateAdded}
+							</TableCell>
 						</TableRow>
 					))}
 				</TableBody>

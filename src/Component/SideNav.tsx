@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import {
-	Calendar,
+	//Calendar,
 	LayoutDashboard,
 	SquarePercent,
 	Inbox,
@@ -16,10 +16,12 @@ import {
 	CreditCard,
 	Bell,
 	LogOut,
-	ScrollText,
+	//ScrollText,
 	Sparkles,
 	Flower2,
 	X,
+	Truck,
+	BoomBox,
 } from "lucide-react";
 import UpImg from "../assets/images/upImg.jpg";
 
@@ -43,15 +45,25 @@ import {
 	DropdownMenuItem,
 } from "../components/ui/dropdown-menu";
 const itemsLayout = [
+	// {
+	// 	title: "Calendar",
+	// 	url: "#",
+	// 	icon: Calendar,
+	// },
+	{
+		title: "Products",
+		url: "/products",
+		icon: BoomBox,
+	},
 	{
 		title: "Sales",
 		url: "/sales",
 		icon: SquarePercent,
 	},
 	{
-		title: "Calendar",
-		url: "#",
-		icon: Calendar,
+		title: "Supplier",
+		url: "/sales",
+		icon: Truck,
 	},
 	{
 		title: "Report",
@@ -63,15 +75,33 @@ const itemsLayout = [
 		url: "#",
 		icon: Inbox,
 	},
-	{
-		title: "Audit",
-		url: "#",
-		icon: ScrollText,
-	},
+	// {
+	// 	title: "Audit",
+	// 	url: "#",
+	// 	icon: ScrollText,
+	// },
 	{
 		title: "Settings",
 		url: "#",
 		icon: Settings,
+	},
+];
+
+const otherCompany = [
+	{
+		name: "Boss Ltd",
+		type: "Sale",
+		notification: 10,
+	},
+	{
+		name: "Fabbaz Ent.",
+		type: "Marking",
+		notification: 12,
+	},
+	{
+		name: "Daniel Shop",
+		type: "Tech",
+		notification: 24,
 	},
 ];
 
@@ -98,6 +128,9 @@ interface SideNavProps {
 }
 
 const SideNav: React.FC<SideNavProps> = ({ setToggleNav }) => {
+	const removeNavFunc = () => {
+		setToggleNav(false)
+	}
 	return (
 		<div className="w-full z-50 h-full flex flex-col">
 			<div className="w-full flex justify-between items-start">
@@ -136,9 +169,9 @@ const SideNav: React.FC<SideNavProps> = ({ setToggleNav }) => {
 						<p className="text-foreground text-[11px] mb-3 ">
 							Company <span className="text-primary">Branches</span>
 						</p>
-						{companyStaffs.map((staff) => (
+						{otherCompany.map((staff) => (
 							<DropdownMenuItem className="flex items-center justify-between">
-								<div className="w-[150px] flex items-center flex-row gap-2">
+								<div onClick={removeNavFunc} className="w-[150px] flex items-center flex-row gap-2">
 									<div className="border-2 rounded-md h-5 w-5 flex items-center justify-center">
 										<AudioWaveform className="h-3 w-3" />
 									</div>
@@ -163,9 +196,13 @@ const SideNav: React.FC<SideNavProps> = ({ setToggleNav }) => {
 					<SidebarMenu>
 						<SidebarMenuItem>
 							<SidebarMenuButton asChild>
-								<Link to='/products' className="my-1">
+								<Link
+									to="/dashboard"
+									className="my-1"
+									onClick={removeNavFunc}
+								>
 									<LayoutDashboard />
-									<span>Products</span>
+									<div>Dashboard</div>
 								</Link>
 							</SidebarMenuButton>
 						</SidebarMenuItem>
@@ -187,17 +224,19 @@ const SideNav: React.FC<SideNavProps> = ({ setToggleNav }) => {
 							</SidebarMenuSub>
 						</div>
 						{itemsLayout.map((item) => (
-									<SidebarMenuItem key={item.title}>
-										<SidebarMenuButton asChild>
-											<Link to={item.url}
-												className="my-1 cursor-pointer"
-											>
-												<item.icon />
-												<span>{item.title}</span>
-											</Link>
-										</SidebarMenuButton>
-									</SidebarMenuItem>
-								))}
+							<SidebarMenuItem key={item.title}>
+								<SidebarMenuButton asChild>
+									<Link
+										to={item.url}
+										className="my-1 cursor-pointer"
+										onClick={removeNavFunc}
+									>
+										<item.icon />
+										<span>{item.title}</span>
+									</Link>
+								</SidebarMenuButton>
+							</SidebarMenuItem>
+						))}
 					</SidebarMenu>
 				</SidebarGroupContent>
 			</SidebarGroup>
