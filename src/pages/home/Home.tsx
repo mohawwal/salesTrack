@@ -1,11 +1,8 @@
-// import { Button } from "../../components/ui/button"
-// import { Link } from "react-router-dom"
-
 import HomeNav from "./HomeNav";
 
 export const Home = () => {
 	return (
-		<div className="w-full bg-black text-white">
+		<div className="w-[100vw] bg-black h-[100vh] text-white">
 			<div className="w-[95%] m-auto">
 				<div className="pt-4 relative">
 					<HomeNav />

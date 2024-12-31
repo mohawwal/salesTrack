@@ -53,10 +53,10 @@ const HomeNav = () => {
 				</div>
 
 				<div
-					className="flex md:hidden text-white "
+					className="flex md:hidden"
 					onClick={navFunc}
 				>
-					<AlignLeft className="text-[20px] text-foreground" />
+					<AlignLeft className="text-[20px] text-white" />
 				</div>
 			</div>
 
