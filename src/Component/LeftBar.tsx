@@ -63,7 +63,7 @@ const itemsLayout = [
 	},
 	{
 		title: "Supplier",
-		url: "/sales",
+		url: "/suppliers",
 		icon: Truck,
 	},
 	{
@@ -129,16 +129,16 @@ const LeftBar = () => {
 		<div>
 			<Sidebar>
 				<SidebarContent className="h-full">
-					<div className="pt-4 flex items-start gap-1 px-2 text-[14px] font-bold">
+					<div className="pt-4 flex items-start gap-1 px-2 text-[14px] text-foreground">
 						<Flower2 className="w-6 h-6 pb-1" />
-						<div>
+						<div className="font-RobotoFlex">
 							SALES <span className="text-primary">DETAL</span>
 						</div>
 					</div>
 					<SidebarHeader className="w-full flex justify-between items-center flex-row">
 						<div className="flex flex-row items-center gap-2">
 							<div className="bg-foreground h-8 w-8 flex justify-center items-center rounded-md">
-								<GalleryVerticalEnd className="text-card w-4 h-4" />
+								<GalleryVerticalEnd className="text-foreground w-4 h-4" />
 							</div>
 							<span>
 								<p className="text-[13px] text-foreground">Jobber Inc</p>
@@ -184,7 +184,7 @@ const LeftBar = () => {
 									<SidebarMenuButton asChild>
 										<Link to="/dashboard" className="my-1">
 											<LayoutDashboard />
-											<div>Dashboard</div>
+											<div className="text-[12.4px] text-foreground">Dashboard</div>
 										</Link>
 									</SidebarMenuButton>
 								</SidebarMenuItem>
@@ -209,7 +209,7 @@ const LeftBar = () => {
 									<SidebarMenuItem key={item.title}>
 										<SidebarMenuButton asChild>
 											<Link to={item.url}
-												className="my-1 cursor-pointer"
+												className="my-1 cursor-pointer text-[12.5px] text-foreground"
 											>
 												<item.icon />
 												<span>{item.title}</span>
@@ -221,7 +221,7 @@ const LeftBar = () => {
 						</SidebarGroupContent>
 					</SidebarGroup>
 
-					<SidebarFooter className="mt-auto">
+					<SidebarFooter className="mt-auto mb-3">
 						<SidebarMenu>
 							<SidebarMenuItem>
 								<DropdownMenu>

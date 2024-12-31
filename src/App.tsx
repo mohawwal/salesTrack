@@ -8,6 +8,7 @@ import SalesHome from "./pages/sales/SalesHome";
 import { Home } from "./pages/home/Home";
 import Products from "./pages/products/products";
 import AddProduct from "./pages/products/addProduct";
+import Suppliers from "./pages/suppliers/Suppliers";
 
 function App() {
 	// Layout Component
@@ -59,6 +60,10 @@ function App() {
 				{
 					path: "/sales",
 					element: <SalesHome />,
+				},
+				{
+					path: "/suppliers",
+					element: <Suppliers />,
 				},
 			],
 		},

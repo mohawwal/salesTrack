@@ -8,7 +8,7 @@ import {
 	TableRow,
 } from "../../components/ui/table";
 
-import { Dot, Filter } from "lucide-react";
+import { Filter } from "lucide-react";
 
 const Products = () => {
 	const products = [
@@ -157,13 +157,13 @@ const Products = () => {
 					{products.map((product) => (
 						<TableRow className="text-[12.2px]">
 							<TableCell className="px-3">{product.id}</TableCell>
-							<TableCell className="px-3 w-[200px] font-bold cursor-pointer">
+							<TableCell className="px-3 w-[200px] font-bold cursor-pointer ">
 								{product.name}
 							</TableCell>
-							<TableCell className="px-3 w-[200px]">
+							<TableCell className="px-3 w-[200px] opacity-70">
 								{product.category}
 							</TableCell>
-							<TableCell className="px-3 w-[200px]">
+							<TableCell className="px-3 w-[200px] font-bold">
 								<span className="text-right">
 									{product.price.toLocaleString("en-US", {
 										minimumFractionDigits: 2,
@@ -174,20 +174,20 @@ const Products = () => {
 							<TableCell className="px-3 text-primary underline cursor-pointer text-[11px]">
 								{product.supplier}
 							</TableCell>
-							<TableCell className="px-3 w-[95px]">
-								<p
-									className={`whitespace-nowrap font-bold rounded-3xl text-[11px] flex justify-start items-center w-[90px] text-white ${
+							<TableCell className="px-3 w-[100px]">
+								<div
+									className={`whitespace-nowrap font-bold rounded-3xl text-[11px] text-center w-[80px] text-white ${
 										product.status === "Available"
-											? "bg-green-500"
-                      : product.status === "Warning" ? "bg-yellow-500"
-											: "bg-red-500"
+											? "bg-blue-600"
+											: product.status === "Warning"
+											? "bg-yellow-500"
+											: "bg-red-600"
 									}`}
 								>
-									<Dot className="w-4" />
-									{product.status}
-								</p>
+									<p className="text-center">{product.status}</p>
+								</div>
 							</TableCell>
-							<TableCell className="px-2 flex justify-center">
+							<TableCell className="px-3 text-center font-bold">
 								{product.stock}
 							</TableCell>
 							<TableCell className="px-3 w-[150px] opacity-65 ">

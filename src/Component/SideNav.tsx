@@ -62,7 +62,7 @@ const itemsLayout = [
 	},
 	{
 		title: "Supplier",
-		url: "/sales",
+		url: "/suppliers",
 		icon: Truck,
 	},
 	{
