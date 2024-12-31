@@ -7,7 +7,7 @@ export const Home = () => {
 	return (
 		<div className="w-full bg-black text-white">
 			<div className="w-[95%] m-auto">
-				<div className="h-[100vh] pt-4 relative">
+				<div className="pt-4 relative">
 					<HomeNav />
 					<div>
 						<div className="flex mt-[150px] flex-col h-full">
