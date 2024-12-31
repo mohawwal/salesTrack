@@ -34,7 +34,7 @@ const HomeNav = () => {
 	return (
 		<div className="flex justify-between w-full relative">
 			<div className="w-[70%] flex items-center gap-[20px] cursor-pointer text-[13.8px]">
-				<div className="hidden md:flex items-start gap-1 px-2 text-[15px] text-foreground mt-2">
+				<div className="hidden md:flex items-start text-white gap-1 px-2 text-[15px] text-foreground mt-2">
 					<Flower2 className="w-7 h-7 pb-1" />
 					<div className="font-RobotoFlex font-semibold">
 						SALES <span className="text-primary">DETAL</span>
@@ -53,7 +53,7 @@ const HomeNav = () => {
 				</div>
 
 				<div
-					className="flex md:hidden"
+					className="flex md:hidden text-white "
 					onClick={navFunc}
 				>
 					<AlignLeft className="text-[20px] text-foreground" />
