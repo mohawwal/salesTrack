@@ -5,7 +5,7 @@ import HomeNav from "./HomeNav";
 
 export const Home = () => {
 	return (
-		<div className="w-full bg-black">
+		<div className="w-full bg-black text-white">
 			<div className="w-[95%] m-auto">
 				<div className="h-[100vh] pt-4 relative">
 					<HomeNav />
