@@ -19,7 +19,7 @@ import {
 export const SalesTable = () => {
 	const soldGoods = [
 		{
-			Invoice: "INV001",
+			Invoice: "INVDEC240001",
 			ProductName: "Wireless Mouse",
 			Buyer: "Pannal",
 			Quantity: 2,
@@ -36,7 +36,7 @@ export const SalesTable = () => {
 			Date: "2024-Oct-15",
 		},
 		{
-			Invoice: "INV002",
+			Invoice: "INVDEC240002",
 			ProductName: "Smartwatch",
 			Buyer: "Sarah Johnson",
 			Quantity: 1,
@@ -53,7 +53,7 @@ export const SalesTable = () => {
 			Date: "2024-Oct-16",
 		},
 		{
-			Invoice: "INV003",
+			Invoice: "INVDEC240003",
 			ProductName: "Power Bank",
 			Buyer: "Michael Lee",
 			Quantity: 3,
@@ -70,7 +70,7 @@ export const SalesTable = () => {
 			Date: "2024-Oct-17",
 		},
 		{
-			Invoice: "INV004",
+			Invoice: "INVDEC240004",
 			ProductName: "Laptop Bag",
 			Buyer: "Emily Chen",
 			Quantity: 1,
@@ -87,7 +87,7 @@ export const SalesTable = () => {
 			Date: "2024-Oct-18",
 		},
 		{
-			Invoice: "INV005",
+			Invoice: "INVDEC240005",
 			ProductName: "Headphones",
 			Buyer: "David Kim",
 			Quantity: 2,
@@ -104,7 +104,7 @@ export const SalesTable = () => {
 			Date: "2024-Oct-19",
 		},
 		{
-			Invoice: "INV006",
+			Invoice: "INVDEC240006",
 			ProductName: "Smart Speaker",
 			Buyer: "Lisa Nguyen",
 			Quantity: 1,
@@ -121,7 +121,7 @@ export const SalesTable = () => {
 			Date: "2024-Oct-20",
 		},
 		{
-			Invoice: "INV007",
+			Invoice: "INVDEC240007",
 			ProductName: "Gaming Keyboard",
 			Buyer: "Chris Brown",
 			Quantity: 1,
@@ -138,7 +138,7 @@ export const SalesTable = () => {
 			Date: "2024-Oct-21",
 		},
 		{
-			Invoice: "INV008",
+			Invoice: "INVDED240008",
 			ProductName: "Tablet",
 			Buyer: "Rebecca Davis",
 			Quantity: 1,
@@ -155,7 +155,7 @@ export const SalesTable = () => {
 			Date: "2024-Oct-22",
 		},
 		{
-			Invoice: "INV009",
+			Invoice: "INVDEC240009",
 			ProductName: "Power Cord",
 			Buyer: "Kevin White",
 			Quantity: 5,
@@ -172,7 +172,7 @@ export const SalesTable = () => {
 			Date: "2024-Oct-23",
 		},
 		{
-			Invoice: "INV010",
+			Invoice: "INVDEC250010",
 			ProductName: "Smartwatch Band",
 			Buyer: "Amanda Martin",
 			Quantity: 100,
@@ -200,11 +200,11 @@ export const SalesTable = () => {
 					List Of The Product Sold.
 				</TableCaption>
 				<TableHeader>
-					<TableRow className="text-[13px]">
-						<TableHead className="px-3 ">Invoice</TableHead>
-						<TableHead className="px-3 w-[200px]">Product Name</TableHead>
+					<TableRow className="text-[12px]">
+						<TableHead className="px-3 text-[12px] ">Invoice</TableHead>
+						{/* <TableHead className="px-3 w-[200px]">Product Name</TableHead> */}
 						<TableHead className="px-3 w-[150px]">Buyer</TableHead>
-						<TableHead className="px-3 w-[100px]">Qty</TableHead>
+						{/* <TableHead className="px-3 w-[100px]">Qty</TableHead> */}
 						<TableHead className="px-3">Method</TableHead>
 						{/* <TableHead className="px-3 w-[100px]">Tnx Receipt</TableHead> */}
 						<TableHead className="px-3 w-[150px] text-center">Mode</TableHead>
@@ -220,16 +220,16 @@ export const SalesTable = () => {
 				<TableBody>
 					{soldGoods.map((sold) => (
 						<TableRow className="text-[12px]">
-							<TableCell className="px-3 font-medium">{sold.Invoice}</TableCell>
-							<TableCell className="px-3 font-bold w-[200px] items-start whitespace-nowrap">
+							<TableCell className="px-3 font-medium text-[11px] cursor-pointer hover:font-semibold">{sold.Invoice}</TableCell>
+							{/* <TableCell className="px-3 font-bold w-[200px] items-start whitespace-nowrap">
 								{sold.ProductName}
-							</TableCell>
+							</TableCell> */}
 							<TableCell className="px-3 hover:text-primary hover:underline whitespace-nowrap cursor-pointer text-[12px] w-[150px]">
 								{sold.Buyer}
 							</TableCell>
-							<TableCell className="w-[100px] px-3 text-center font-bold">
+							{/* <TableCell className="w-[100px] px-3 text-center font-bold">
 								{sold.Quantity}
-							</TableCell>
+							</TableCell> */}
 							<TableCell className="px-3 text-[12px] whitespace-nowrap">{sold.PaymentMethod}</TableCell>
 							{/* <TableCell className="px-3 w-[100px] flex justify-center">
 								<div>

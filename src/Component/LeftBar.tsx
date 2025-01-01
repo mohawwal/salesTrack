@@ -131,7 +131,7 @@ const LeftBar = () => {
 				<SidebarContent className="h-full">
 					<div className="pt-4 flex items-start gap-1 px-2 text-[14px] text-foreground">
 						<Flower2 className="w-6 h-6 pb-1" />
-						<div className="font-RobotoFlex">
+						<div>
 							SALES <span className="text-primary">DETAL</span>
 						</div>
 					</div>

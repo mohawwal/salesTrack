@@ -1,4 +1,4 @@
-import { AlignLeft, Flower2 } from "lucide-react";
+import { AlignLeft, Flower2, MoveUpRight } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -60,12 +60,15 @@ const HomeNav = () => {
 				</div>
 			</div>
 
-			<div className="border-2 border-primary flex items-center bg-white text-black py-[1.8%] px-[2.8%] rounded-[100px]">
+			<div className="border-2 border-primary flex items-center bg-white text-black py-[1.5%] px-[1.8%] rounded-[100px] group">
 				<Link
 					to="/dashboard"
-					className="font-semibold text-center w-[100%] font-RobotoFlex text-[13px]"
+					className="font-semibold text-center w-[100%] font-RobotoFlex text-[13px] flex justify-center items-center gap-2"
 				>
-					Get Started?
+					<p>Get Started</p>
+					<span className="hidden w-6 h-6 bg-primary border-primary rounded-[50%] group-hover:flex">
+						<MoveUpRight className="p-1 text-white" />
+					</span>
 				</Link>
 			</div>
 

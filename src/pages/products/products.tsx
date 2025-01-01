@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
 	Table,
 	TableBody,
@@ -172,7 +173,9 @@ const Products = () => {
 								</span>
 							</TableCell>
 							<TableCell className="px-3 text-primary underline cursor-pointer text-[11px]">
+								<Link to={`/supplier/${product.supplier}`}>
 								{product.supplier}
+								</Link>
 							</TableCell>
 							<TableCell className="px-3 w-[100px]">
 								<div

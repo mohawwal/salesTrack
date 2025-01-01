@@ -9,6 +9,7 @@ import { Home } from "./pages/home/Home";
 import Products from "./pages/products/products";
 import AddProduct from "./pages/products/addProduct";
 import Suppliers from "./pages/suppliers/Suppliers";
+import SuppliersInfo from "./pages/suppliers/SuppliersInfo";
 
 function App() {
 	// Layout Component
@@ -64,6 +65,10 @@ function App() {
 				{
 					path: "/suppliers",
 					element: <Suppliers />,
+				},
+				{
+					path: "/supplier/:company",
+					element: <SuppliersInfo />,
 				},
 			],
 		},
