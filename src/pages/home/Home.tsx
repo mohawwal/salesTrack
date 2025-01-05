@@ -2,7 +2,7 @@ import HomeNav from "./HomeNav";
 
 export const Home = () => {
 	return (
-		<div className="w-full bg-black h-[100vh] text-white">
+		<div className="w-full h-[100vh]">
 			<div className="w-[95%] m-auto">
 				<div className="pt-4 relative">
 					<HomeNav />

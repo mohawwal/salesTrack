@@ -158,13 +158,13 @@ const Products = () => {
 					{products.map((product) => (
 						<TableRow className="text-[12.2px]">
 							<TableCell className="px-3">{product.id}</TableCell>
-							<TableCell className="px-3 w-[200px] font-bold cursor-pointer ">
+							<TableCell className="px-3 w-[200px] font-bold cursor-pointer whitespace-nowrap ">
 								{product.name}
 							</TableCell>
-							<TableCell className="px-3 w-[200px] opacity-70">
+							<TableCell className="px-3 w-[200px] opacity-70 whitespace-nowrap">
 								{product.category}
 							</TableCell>
-							<TableCell className="px-3 w-[200px] font-bold">
+							<TableCell className="px-3 w-[200px] font-bold whitespace-nowrap">
 								<span className="text-right">
 									{product.price.toLocaleString("en-US", {
 										minimumFractionDigits: 2,
@@ -172,12 +172,12 @@ const Products = () => {
 									})}
 								</span>
 							</TableCell>
-							<TableCell className="px-3 text-primary underline cursor-pointer text-[11px]">
+							<TableCell className="px-3 text-primary underline cursor-pointer text-[11px] whitespace-nowrap">
 								<Link to={`/supplier/${product.supplier}`}>
 								{product.supplier}
 								</Link>
 							</TableCell>
-							<TableCell className="px-3 w-[100px]">
+							<TableCell className="px-3 w-[100px] whitespace-nowrap">
 								<div
 									className={`whitespace-nowrap font-bold rounded-3xl text-[11px] text-center w-[80px] text-white ${
 										product.status === "Available"
@@ -190,10 +190,10 @@ const Products = () => {
 									<p className="text-center">{product.status}</p>
 								</div>
 							</TableCell>
-							<TableCell className="px-3 text-center font-bold">
+							<TableCell className="px-3 text-center font-bold whitespace-nowrap">
 								{product.stock}
 							</TableCell>
-							<TableCell className="px-3 w-[150px] opacity-65 ">
+							<TableCell className="px-3 w-[150px] opacity-65 whitespace-nowrap">
 								{product.dateAdded}
 							</TableCell>
 						</TableRow>

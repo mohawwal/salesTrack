@@ -34,7 +34,7 @@ const HomeNav = () => {
 	return (
 		<div className="flex justify-between w-full relative">
 			<div className="w-[70%] flex items-center gap-[20px] cursor-pointer text-[13.8px]">
-				<div className="hidden md:flex items-start text-white gap-1 px-2 text-[15px] text-foreground mt-2">
+				<div className="hidden md:flex items-start gap-1 px-2 text-[15px] text-foreground mt-2">
 					<Flower2 className="w-7 h-7 pb-1" />
 					<div className="font-RobotoFlex font-semibold">
 						SALES <span className="text-primary">DETAL</span>
@@ -56,7 +56,7 @@ const HomeNav = () => {
 					className="flex md:hidden"
 					onClick={navFunc}
 				>
-					<AlignLeft className="text-[20px] text-white" />
+					<AlignLeft className="text-[20px]" />
 				</div>
 			</div>
 
@@ -67,13 +67,13 @@ const HomeNav = () => {
 				>
 					<p>Get Started</p>
 					<span className="hidden w-6 h-6 bg-primary border-primary rounded-[50%] group-hover:flex">
-						<MoveUpRight className="p-1 text-white" />
+						<MoveUpRight className="p-1" />
 					</span>
 				</Link>
 			</div>
 
 			{handleNav && (
-				<div className="md:hidden fixed bg-yellow-300 text-black top-[10%] left-0 w-[100%] z-50 flex items-center justify-center p-4">
+				<div className="md:hidden fixed bg-primary top-[10%] left-0 w-[100%] z-50 flex items-center justify-center p-4">
 					<div className="flex flex-col gap-10 font-RobotoFlex">
 						{menuList.map((list) => (
 							<p

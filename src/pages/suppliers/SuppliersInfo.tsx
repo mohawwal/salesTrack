@@ -10,6 +10,12 @@ import {
 	TableRow,
 } from "../../components/ui/table";
 
+import {
+	HoverCard,
+	HoverCardContent,
+	HoverCardTrigger,
+} from "../../components/ui/hover-card";
+
 const SuppliersInfo = () => {
 	const { company } = useParams();
 
@@ -24,19 +30,21 @@ const SuppliersInfo = () => {
 			Receipt: true,
 			Confirm: "Received",
 			Amount: 29965.99,
+			comment: "Mama Jide said there is goods for you",
 			UpdatedBy: "Femi",
 			Date: "2024-Oct-15",
 		},
-        {
+		{
 			ProductName: " Messager Mobile",
 			Quantity: 2,
 			Status: "Delivered",
 			PaymentMethod: "Credit Card",
 			Deposit: 0,
 			Balance: 0,
-			Receipt: true,
-			Confirm: "Received",
+			Receipt: false,
+			Confirm: "failed",
 			Amount: 29965.99,
+			comment: "Mama Jide said no goods for you",
 			UpdatedBy: "Wally",
 			Date: "2024-Oct-15",
 		},
@@ -49,8 +57,8 @@ const SuppliersInfo = () => {
 					<span className="text-[1.4rem] font-semibold">
 						{company?.toUpperCase()}
 					</span>
-					<span className="bg-primary rounded-[50%]">
-						<Edit2 className="w-4 h-4" />
+					<span className="bg-primary rounded-[50%] flex items-center justify-center w-6 h-6">
+						<Edit2 className="w-4 h-4 text-background" />
 					</span>
 				</div>
 				<div className="text-[14px]">
@@ -66,16 +74,16 @@ const SuppliersInfo = () => {
 					<div className="mt-4">
 						<p className="opacity-40 underline text-[12.5px]">Location</p>
 						<div className="text-[13px]">
-                            <p>4, Gloriza ketu, 200, Ig Lagos</p>
-                            <p>6, Gloriza ketu, 200, Ig Lagos</p>
-                        </div>
+							<p>4, Gloriza ketu, 200, Ig Lagos</p>
+							<p>6, Gloriza ketu, 200, Ig Lagos</p>
+						</div>
 					</div>
 					<div className="mt-4">
 						<p className="opacity-40 underline text-[12.5px]">Contact</p>
-                        <div className="text-[13px]">
-                            <p>+234563729783</p>
-                            <p>+578986758647</p>
-                        </div>
+						<div className="text-[13px]">
+							<p>+234563729783</p>
+							<p>+578986758647</p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -83,7 +91,7 @@ const SuppliersInfo = () => {
 				<div>
 					<div className="w-full flex justify-end my-4">
 						<span className="flex items-center justify-center gap-1 hover:bg-border w-6 h-6 rounded-md bg-primary">
-							<Filter className="w-4 h-4 cursor-pointer" />
+							<Filter className="w-4 h-4 cursor-pointer text-background" />
 						</span>
 					</div>
 					<Table className="overflow-x-scroll mx-2">
@@ -96,11 +104,12 @@ const SuppliersInfo = () => {
 								<TableHead className="px-3">Quantity</TableHead>
 								<TableHead className="px-3">Status</TableHead>
 								<TableHead className="px-3">PaymentMethod</TableHead>
-								<TableHead className="px-3">Deposit</TableHead> 
+								<TableHead className="px-3">Deposit</TableHead>
 								<TableHead className="px-3">Balance</TableHead>
 								<TableHead className="px-3">Amount</TableHead>
 								<TableHead className="px-3">Receipt</TableHead>
 								<TableHead className="px-3 w-[200px]">Confirm</TableHead>
+								<TableHead className="px-3 w-[200px]">Comment</TableHead>
 								<TableHead className="px-3 w-[200px]">UpdatedBy</TableHead>
 								<TableHead className="px-3 w-[100px]">Date</TableHead>
 							</TableRow>
@@ -166,10 +175,20 @@ const SuppliersInfo = () => {
 											</div>
 										)}
 									</TableCell>
-									<TableCell className="px-3 hover:text-primary hover:underline cursor-pointer text-[12px]">
+									<HoverCard>
+										<HoverCardTrigger>
+											<TableCell className="px-3 hover:text-primary hover:underline  cursor-pointer text-[11.5px] whitespace-nowrap">
+												{sold.comment?.length > 10
+													? sold.comment.split(" ")[0] + "..."
+													: sold.comment}
+											</TableCell>
+										</HoverCardTrigger>
+										<HoverCardContent>{sold.comment}</HoverCardContent>
+									</HoverCard>
+									<TableCell className="px-3 hover:text-primary hover:underline cursor-pointer text-[11.5px]">
 										{sold.UpdatedBy}
 									</TableCell>
-									<TableCell className="px-3 w-[100px] opacity-65 whitespace-nowrap text-[12px]">
+									<TableCell className="px-3 w-[100px] opacity-65 whitespace-nowrap text-[11px]">
 										{sold.Date}
 									</TableCell>
 								</TableRow>
