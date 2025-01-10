@@ -16,6 +16,18 @@ import {
 	TableRow,
 } from "../../components/ui/table";
 
+import {
+	AlertDialog,
+	AlertDialogCancel,
+	AlertDialogContent,
+	AlertDialogDescription,
+	AlertDialogFooter,
+	AlertDialogHeader,
+	AlertDialogTitle,
+	AlertDialogTrigger,
+} from "../../components/ui/alert-dialog";
+import { SalesChart } from "./SalesChart";
+
 export const SalesTable = () => {
 	const soldGoods = [
 		{
@@ -192,9 +204,30 @@ export const SalesTable = () => {
 
 	return (
 		<div className="p-1">
-			<span className="flex items-center justify-center gap-1 hover:bg-border w-6 h-6 rounded-md">
-				<Filter className="w-4 h-4 cursor-pointer" />
-			</span>
+			<div className=" my-3 flex w-full items-center justify-between">
+				<span className="flex items-center justify-center gap-1 hover:bg-border w-6 h-6 rounded-md">
+					<Filter className="w-4 h-4 cursor-pointer" />
+				</span>
+				<div className="bg-border px-2 py-1 rounded-xl hover:bg-primary hover:text-white cursor-pointer">
+					<AlertDialog>
+						<AlertDialogTrigger>
+							<p className="text-[11.5px]">Sales Chart</p>
+						</AlertDialogTrigger>
+						<AlertDialogContent>
+							<AlertDialogHeader>
+								<AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+								<AlertDialogDescription>
+									<SalesChart/>
+								</AlertDialogDescription>
+							</AlertDialogHeader>
+							<AlertDialogFooter>
+								<AlertDialogCancel>Cancel</AlertDialogCancel>
+								{/* <AlertDialogAction>Continue</AlertDialogAction> */}
+							</AlertDialogFooter>
+						</AlertDialogContent>
+					</AlertDialog>
+				</div>
+			</div>
 			<Table className="overflow-x-scroll mx-2">
 				<TableCaption className="text-[12px]">
 					List Of The Product Sold.
@@ -220,7 +253,9 @@ export const SalesTable = () => {
 				<TableBody>
 					{soldGoods.map((sold) => (
 						<TableRow className="text-[12px]">
-							<TableCell className="px-3 font-medium text-[11px] cursor-pointer hover:font-semibold">{sold.Invoice}</TableCell>
+							<TableCell className="px-3 font-medium text-[11px] cursor-pointer hover:font-semibold">
+								{sold.Invoice}
+							</TableCell>
 							{/* <TableCell className="px-3 font-bold w-[200px] items-start whitespace-nowrap">
 								{sold.ProductName}
 							</TableCell> */}
@@ -230,7 +265,9 @@ export const SalesTable = () => {
 							{/* <TableCell className="w-[100px] px-3 text-center font-bold">
 								{sold.Quantity}
 							</TableCell> */}
-							<TableCell className="px-3 text-[12px] whitespace-nowrap">{sold.PaymentMethod}</TableCell>
+							<TableCell className="px-3 text-[12px] whitespace-nowrap">
+								{sold.PaymentMethod}
+							</TableCell>
 							{/* <TableCell className="px-3 w-[100px] flex justify-center">
 								<div>
 									{sold.Receipt ? (
@@ -290,7 +327,19 @@ export const SalesTable = () => {
 								</span>
 							</TableCell>
 							<TableCell className="px-3 w-[200px]">
-								{sold.Confirm === 'Received' ? <div className="bg-green-600 rounded-2xl text-[11px] text-white font-bold text-center px-2">Success</div> : sold.Confirm === 'Processing' ? <div className="bg-yellow-500 rounded-2xl text-[11px] text-white font-bold text-center px-2">Processing</div> : <div className="bg-red-600 rounded-2xl text-[11px] text-white font-bold text-center px-2">Failed</div>}
+								{sold.Confirm === "Received" ? (
+									<div className="bg-green-600 rounded-2xl text-[11px] text-white font-bold text-center px-2">
+										Success
+									</div>
+								) : sold.Confirm === "Processing" ? (
+									<div className="bg-yellow-500 rounded-2xl text-[11px] text-white font-bold text-center px-2">
+										Processing
+									</div>
+								) : (
+									<div className="bg-red-600 rounded-2xl text-[11px] text-white font-bold text-center px-2">
+										Failed
+									</div>
+								)}
 							</TableCell>
 							<TableCell className="px-3 w-[200px] hover:text-primary hover:underline cursor-pointer text-[12px]">
 								{sold.Seller}

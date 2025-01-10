@@ -9,7 +9,7 @@ const Dashboard = () => {
 		<div className="w-full h-full">
 			<div className="h-full w-[96%] mx-auto pt-3 pb-9">
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-4 mb-6">
-					<div className="bg-[#E3F5FF] p-5 rounded-xl shadow-sm ">
+					<div className="bg-chart-3 p-5 rounded-xl shadow-sm ">
 						<h3 className="text-foreground text-[13.5px] mb-2 font-bold">Total Sales</h3>
 						<div className="flex items-center gap-2 flex-wrap">
 							<p className="text-popover-foreground text-[16.5px] font-semibold">3,671</p>
@@ -17,21 +17,21 @@ const Dashboard = () => {
 								-0.03%
 								<TrendingUp className="w-3 h-3" />
 							</span>
-							<span className="bg-primary text-[10.5px] px-1 text-white rounded-xl">4min</span>
+							<span className="bg-primary text-[10.5px] px-1 text-white rounded-xl border border-foreground">4min</span>
 						</div>
 					</div>
-					<div className="bg-[#E5ECF6] p-5 rounded-xl shadow-sm ">
-						<h3 className="text-foreground text-[13.5px] mb-2 font-bold">Products</h3>
+					<div className="bg-chart-5 p-5 rounded-xl shadow-sm text-black">
+						<h3 className="text-[13.5px] mb-2 font-bold">Products</h3>
 						<div className="flex items-center gap-2 flex-wrap">
-							<p className="text-popover-foreground text-[16.5px] font-semibold">1,601</p>
-							<span className="gap-1 flex items-center text-[12px] text-foreground">
+							<p className=" text-[16.5px] font-semibold">1,601</p>
+							<span className="gap-1 flex items-center text-[12px]">
 								-0.01%
 								<TrendingDown className="w-3 h-3" />
 							</span>
-							<span className="bg-primary text-[10.5px] px-1 text-white rounded-xl">4min</span>
+							<span className="bg-primary text-[10.5px] px-1 text-white rounded-xl border border-foreground">4min</span>
 						</div>
 					</div>
-					<div className="bg-[#E3F5FF] p-5 rounded-xl shadow-sm ">
+					<div className="bg-chart-3 p-5 rounded-xl shadow-sm ">
 						<h3 className="text-foreground text-[13.5px] mb-2 font-bold">Expenses</h3>
 						<div className="flex items-center gap-2 flex-wrap">
 							<p className="text-popover-foreground text-[16.5px] font-semibold">3,271</p>
@@ -39,18 +39,18 @@ const Dashboard = () => {
 								-0.04%
 								<TrendingUp className="w-3 h-3" />
 							</span>
-							<span className="bg-primary text-[10.5px] px-1 text-white rounded-xl">4min</span>
+							<span className="bg-primary text-[10.5px] px-1 text-white rounded-xl border border-foreground">4min</span>
 						</div>
 					</div>
-					<div className="bg-[#E5ECF6] p-5 rounded-xl shadow-sm ">
-						<h3 className="text-foreground text-[13.5px] mb-2 font-bold">Profits</h3>
+					<div className="bg-chart-5 p-5 rounded-xl shadow-sm text-black">
+						<h3 className="text-[13.5px] mb-2 font-bold">Profit</h3>
 						<div className="flex items-center gap-2 flex-wrap">
-							<p className="text-popover-foreground text-[16.5px] font-semibold">1,001</p>
-							<span className="gap-1 flex text-[12px] items-center text-foreground justify-between">
-								-0.05%
+							<p className=" text-[16.5px] font-semibold">1,601</p>
+							<span className="gap-1 flex items-center text-[12px]">
+								-0.01%
 								<TrendingDown className="w-3 h-3" />
 							</span>
-							<span className="bg-primary text-[10.5px] px-1 text-white rounded-xl">4min</span>
+							<span className="bg-primary text-[10.5px] px-1 text-white rounded-xl border border-foreground">4min</span>
 						</div>
 					</div>
 				</div>

@@ -45,11 +45,6 @@ import {
 	DropdownMenuItem,
 } from "../components/ui/dropdown-menu";
 const itemsLayout = [
-	// {
-	// 	title: "Calendar",
-	// 	url: "#",
-	// 	icon: Calendar,
-	// },
 	{
 		title: "Products",
 		url: "/products",
@@ -66,8 +61,8 @@ const itemsLayout = [
 		icon: Truck,
 	},
 	{
-		title: "Report",
-		url: "#",
+		title: "Task",
+		url: "/task",
 		icon: ClipboardMinus,
 	},
 	{

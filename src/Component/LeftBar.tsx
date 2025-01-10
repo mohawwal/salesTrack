@@ -67,8 +67,8 @@ const itemsLayout = [
 		icon: Truck,
 	},
 	{
-		title: "Report",
-		url: "#",
+		title: "Task",
+		url: "/task",
 		icon: ClipboardMinus,
 	},
 	{

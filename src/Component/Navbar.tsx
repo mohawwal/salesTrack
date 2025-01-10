@@ -60,10 +60,10 @@ export const Navbar = () => {
 							<DropdownMenuTrigger asChild>
 								<button className="relative bg-transparent hover:border-none hover:bg-transparent focus:outline-none focus:ring-0 border-none hidden sm:block p-0 shadow-none">
 									<Sun className="text-black rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 p-1" />
-									<Moon className="absolute inset-0 text-white rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 p-1" />
+									<Moon className="absolute inset-0 text-white rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 p-1 " />
 								</button>
 							</DropdownMenuTrigger>
-							<DropdownMenuContent className="m-4">
+							<DropdownMenuContent className="m-4 text-[11px]">
 								<DropdownMenuItem onClick={() => setTheme("light")}>
 									Light
 								</DropdownMenuItem>
@@ -76,13 +76,13 @@ export const Navbar = () => {
 							</DropdownMenuContent>
 						</DropdownMenu>
 						<button className="hover:bg-gray-100 rounded-lg w-[25px] h-[25px] items-center justify-center hidden sm:block">
-							<History className="p-1" />
+							<History className="p-1 hover:text-black" />
 						</button>
 						<button className="hover:bg-gray-100 rounded-lg w-[25px] h-[25px] flex items-center justify-center ">
-							<Bell className="p-1" />
+							<Bell className="p-1 hover:text-black" />
 						</button>
 						<button className="hover:bg-gray-100 rounded-lg w-[25px] h-[25px] flex items-center justify-center ">
-							<PanelsTopLeft className="p-1" />
+							<PanelsTopLeft className="p-1 hover:text-black" />
 						</button>
 					</div>
 				</div>

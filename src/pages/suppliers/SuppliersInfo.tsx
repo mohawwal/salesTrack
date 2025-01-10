@@ -1,19 +1,9 @@
-import {
-	Edit2,
-	Filter,
-	CloudDownload,
-	CircleOff,
-	ChevronsUpDown,
-	Check,
-} from "lucide-react";
+import { Edit2, Filter, CloudDownload, CircleOff } from "lucide-react";
 import { useParams } from "react-router-dom";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Plus } from "lucide-react";
-
-import { useState } from "react";
 
 import { Button } from "../../components/ui/button";
 import {
@@ -27,8 +17,6 @@ import {
 } from "../../components/ui/form";
 import { Input } from "../../components/ui/input";
 
-import { cn } from "../../lib/utils";
-
 import {
 	Table,
 	TableBody,
@@ -38,20 +26,6 @@ import {
 	TableHeader,
 	TableRow,
 } from "../../components/ui/table";
-import {
-	Command,
-	CommandEmpty,
-	CommandGroup,
-	CommandInput,
-	CommandItem,
-	CommandList,
-} from "../../components/ui/command";
-import {
-	Popover,
-	PopoverContent,
-	PopoverTrigger,
-} from "../../components/ui/popover";
-
 import {
 	HoverCard,
 	HoverCardContent,
@@ -69,23 +43,17 @@ import {
 
 // Define the form schema
 const formSchema = z.object({
-	username: z.string().min(2, {
-		message: "Username must be at least 2 characters.",
+	Name: z.string().min(2, {
+		message: "Name can not be empty.",
 	}),
-	description: z.string().min(2, {
-		message: "Description must be at least 2 characters.",
+	About: z.string().min(2, {
+		message: "About can not be empty.",
 	}),
-	price: z.string().min(2, {
-		message: "Description must be at least 2 characters.",
+	Location: z.string().min(2, {
+		message: "Location can not be empty.",
 	}),
-	stock: z.string().min(2, {
-		message: "Description must be at least 2 characters.",
-	}),
-	supplier: z.string().min(2, {
-		message: "Description must be at least 2 characters.",
-	}),
-	size: z.string().min(2, {
-		message: "Description must be at least 2 characters.",
+	Contact: z.string().min(2, {
+		message: "Contact can not be empty.",
 	}),
 });
 
@@ -122,49 +90,25 @@ const SuppliersInfo = () => {
 			Date: "2024-Oct-15",
 		},
 	];
-	const frameworks = [
-		{
-			value: "next.js",
-			label: "Next.js",
-		},
-		{
-			value: "sveltekit",
-			label: "SvelteKit",
-		},
-		{
-			value: "nuxt.js",
-			label: "Nuxt.js",
-		},
-		{
-			value: "remix",
-			label: "Remix",
-		},
-		{
-			value: "astro",
-			label: "Astro",
-		},
-	];
 
 	const form = useForm({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
-			username: "",
-			category: "",
-			description: "",
-			price: "",
-			stock: "",
-			supplier: "",
-			size: "",
+			Name: "",
+			About: "",
+			Location: "",
+			Contact: "",
 		},
 	});
 
 	// Handle form submission
-	const onSubmit = (data: { username: string }) => {
+	const onSubmit = (data: {
+		Name: string;
+		About: string;
+		Location: string;
+	}) => {
 		console.log("Form Data:", data);
 	};
-
-	const [open, setOpen] = useState(false);
-	const [value, setValue] = useState("");
 
 	return (
 		<div className="w-[90%] m-auto mt-3">
@@ -190,7 +134,7 @@ const SuppliersInfo = () => {
 										>
 											<FormField
 												control={form.control}
-												name="username"
+												name="Name"
 												render={({ field }) => (
 													<FormItem>
 														<FormLabel>Name</FormLabel>
@@ -200,190 +144,60 @@ const SuppliersInfo = () => {
 																{...field}
 															/>
 														</FormControl>
-														{/* <FormDescription>
-									This is your public display name.
-								    </FormDescription> */}
 														<FormMessage />
 													</FormItem>
 												)}
 											/>
-											<div>
-												<div className="mb-2">Category</div>
-												<Popover
-													open={open}
-													onOpenChange={setOpen}
-												>
-													<PopoverTrigger asChild>
-														<Button
-															variant="outline"
-															role="combobox"
-															aria-expanded={open}
-															className="w-max-[220px] justify-between"
-														>
-															{value ? (
-																frameworks.find(
-																	(framework) => framework.value === value,
-																)?.label
-															) : (
-																<div className="opacity-50">
-																	select product category...
+											<FormField
+												control={form.control}
+												name="About"
+												render={({ field }) => (
+													<FormItem>
+														<FormLabel>About</FormLabel>
+														<FormControl>
+															<div className="relative w-full">
+																<div className="w-full p-2 border border-border rounded-md focus-within:border-primary">
+																	<textarea
+																		className="w-full p-0 outline-none bg-transparent"
+																		placeholder="About the company/Brand"
+																		{...field}
+																	/>
 																</div>
-															)}
-															<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-														</Button>
-													</PopoverTrigger>
-													<PopoverContent className="w-[220px] p-0">
-														<Command>
-															<CommandInput placeholder="Search framework..." />
-															<CommandList>
-																<CommandEmpty>No framework found.</CommandEmpty>
-																<CommandGroup>
-																	{frameworks.map((framework) => (
-																		<CommandItem
-																			key={framework.value}
-																			value={framework.value}
-																			onSelect={(currentValue) => {
-																				setValue(
-																					currentValue === value
-																						? ""
-																						: currentValue,
-																				);
-																				setOpen(false);
-																			}}
-																		>
-																			<Check
-																				className={cn(
-																					"mr-2 h-4 w-4",
-																					value === framework.value
-																						? "opacity-100"
-																						: "opacity-0",
-																				)}
-																			/>
-																			{framework.label}
-																		</CommandItem>
-																	))}
-																</CommandGroup>
-															</CommandList>
-															<Dialog>
-																<DialogTrigger>
-																	<div className="p-2 cursor-pointer flex items-center justify-start border-t-[1.5px]">
-																		<div className="flex flex-row gap-3 ">
-																			<div className="border-2 rounded-md h-5 w-5 flex items-center justify-center">
-																				<Plus className="h-3 w-3" />
-																			</div>
-																			<p className="text-[13px]">
-																				Add new category
-																			</p>
-																		</div>
-																	</div>
-																</DialogTrigger>
-																<DialogContent>
-																	<DialogHeader>
-																		<DialogTitle>Category</DialogTitle>
-																		<DialogDescription>
-																			<FormControl>
-																				<Input placeholder="Category name" />
-																			</FormControl>
-																			<Button className="mt-4">Enter</Button>
-																		</DialogDescription>
-																	</DialogHeader>
-																</DialogContent>
-															</Dialog>
-														</Command>
-													</PopoverContent>
-												</Popover>
-											</div>
+															</div>
+														</FormControl>
+														<FormMessage />
+													</FormItem>
+												)}
+											/>
+
 											<FormField
 												control={form.control}
-												name="stock"
+												name="Location"
 												render={({ field }) => (
 													<FormItem>
-														<FormLabel>Stock</FormLabel>
+														<FormLabel>Location</FormLabel>
 														<FormControl>
 															<Input
-																placeholder="Amount of Items added"
+																placeholder="company address/Location"
 																{...field}
 															/>
 														</FormControl>
-														{/* <FormDescription>
-									This is your public display name.
-								    </FormDescription> */}
 														<FormMessage />
 													</FormItem>
 												)}
 											/>
 											<FormField
 												control={form.control}
-												name="supplier"
+												name="Contact"
 												render={({ field }) => (
 													<FormItem>
-														<FormLabel>Supplier</FormLabel>
+														<FormLabel>Contact</FormLabel>
 														<FormControl>
 															<Input
-																placeholder="Supply Name"
+																placeholder="Company Contact"
 																{...field}
 															/>
 														</FormControl>
-														{/* <FormDescription>
-									This is your public display name.
-								    </FormDescription> */}
-														<FormMessage />
-													</FormItem>
-												)}
-											/>
-											<FormField
-												control={form.control}
-												name="description"
-												render={({ field }) => (
-													<FormItem>
-														<FormLabel>Description</FormLabel>
-														<FormControl>
-															<Input
-																placeholder="Description of your product"
-																{...field}
-															/>
-														</FormControl>
-														{/* <FormDescription>
-									This is your public display name.
-								    </FormDescription> */}
-														<FormMessage />
-													</FormItem>
-												)}
-											/>
-											<FormField
-												control={form.control}
-												name="price"
-												render={({ field }) => (
-													<FormItem>
-														<FormLabel>Price</FormLabel>
-														<FormControl>
-															<Input
-																placeholder="Price of your product"
-																{...field}
-															/>
-														</FormControl>
-														{/* <FormDescription>
-									This is your public display name.
-								    </FormDescription> */}
-														<FormMessage />
-													</FormItem>
-												)}
-											/>
-											<FormField
-												control={form.control}
-												name="size"
-												render={({ field }) => (
-													<FormItem>
-														<FormLabel>Size/Variants</FormLabel>
-														<FormControl>
-															<Input
-																placeholder="List of available sizes or variants"
-																{...field}
-															/>
-														</FormControl>
-														{/* <FormDescription>
-									This is your public display name.
-								    </FormDescription> */}
 														<FormMessage />
 													</FormItem>
 												)}

@@ -10,6 +10,8 @@ import Products from "./pages/products/products";
 import AddProduct from "./pages/products/addProduct";
 import Suppliers from "./pages/suppliers/Suppliers";
 import SuppliersInfo from "./pages/suppliers/SuppliersInfo";
+import Report from "./pages/Task/Report";
+import LoginPage from "./app/login/page";
 
 function App() {
 	// Layout Component
@@ -70,7 +72,16 @@ function App() {
 					path: "/supplier/:company",
 					element: <SuppliersInfo />,
 				},
+				{
+					path: "/task",
+					element: <Report />,
+				},
+				
 			],
+		},
+		{
+			path: "/auth/login",
+			element: <LoginPage />,
 		},
 	]);
 
