@@ -44,13 +44,9 @@ import {
 } from "../components/ui/dropdown-menu";
 import UpImg from "../assets/images/upImg.jpg";
 import { Link } from "react-router-dom";
+import AddStaffForm from "./AddStaffForm";
 
 const itemsLayout = [
-	// {
-	// 	title: "Calendar",
-	// 	url: "#",
-	// 	icon: Calendar,
-	// },
 	{
 		title: "Products",
 		url: "/products",
@@ -76,11 +72,6 @@ const itemsLayout = [
 		url: "#",
 		icon: Inbox,
 	},
-	// {
-	// 	title: "Audit",
-	// 	url: "#",
-	// 	icon: ScrollText,
-	// },
 	{
 		title: "Settings",
 		url: "#",
@@ -116,11 +107,6 @@ const companyStaffs = [
 		name: "Kemi",
 		type: "Marking",
 		notification: 12,
-	},
-	{
-		name: "Daniel",
-		type: "Tech",
-		notification: 24,
 	},
 ];
 
@@ -182,9 +168,14 @@ const LeftBar = () => {
 							<SidebarMenu>
 								<SidebarMenuItem>
 									<SidebarMenuButton asChild>
-										<Link to="/dashboard" className="my-1">
+										<Link
+											to="/dashboard"
+											className="my-1"
+										>
 											<LayoutDashboard />
-											<div className="text-[12.4px] text-foreground">Dashboard</div>
+											<div className="text-[12.4px] text-foreground">
+												Dashboard
+											</div>
 										</Link>
 									</SidebarMenuButton>
 								</SidebarMenuItem>
@@ -194,21 +185,27 @@ const LeftBar = () => {
 										{companyStaffs.map((staffs) => (
 											<SidebarMenuSubItem>
 												<SidebarMenuItem>
-													<SidebarMenuButton>
-														<p className="text-[12px]">{staffs.name}</p>
-														<SidebarMenuBadge>
-															{staffs.notification}
-														</SidebarMenuBadge>
-													</SidebarMenuButton>
+													<Link to={`jobber/${staffs.name}`}>
+														<SidebarMenuButton>
+															<p className="text-[12px]">{staffs.name}</p>
+															<SidebarMenuBadge>
+																{staffs.notification}
+															</SidebarMenuBadge>
+														</SidebarMenuButton>
+													</Link>
 												</SidebarMenuItem>
 											</SidebarMenuSubItem>
 										))}
+										<div className="mt-2 w-[100%]">
+											<AddStaffForm companyStaffs={companyStaffs} />
+										</div>
 									</SidebarMenuSub>
 								</div>
 								{itemsLayout.map((item) => (
 									<SidebarMenuItem key={item.title}>
 										<SidebarMenuButton asChild>
-											<Link to={item.url}
+											<Link
+												to={item.url}
 												className="my-1 cursor-pointer text-[12.5px] text-foreground"
 											>
 												<item.icon />
@@ -220,7 +217,6 @@ const LeftBar = () => {
 							</SidebarMenu>
 						</SidebarGroupContent>
 					</SidebarGroup>
-
 					<SidebarFooter className="mt-auto mb-3">
 						<SidebarMenu>
 							<SidebarMenuItem>

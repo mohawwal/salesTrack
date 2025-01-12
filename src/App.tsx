@@ -12,9 +12,9 @@ import Suppliers from "./pages/suppliers/Suppliers";
 import SuppliersInfo from "./pages/suppliers/SuppliersInfo";
 import Report from "./pages/Task/Report";
 import LoginPage from "./app/login/page";
+import { StaffsProfile } from "./Component/StaffsProfile";
 
 function App() {
-	// Layout Component
 	const Layout = () => {
 		return (
 			<div>
@@ -76,7 +76,10 @@ function App() {
 					path: "/task",
 					element: <Report />,
 				},
-				
+				{
+					path: "/jobber/:id",
+					element: <StaffsProfile />,
+				},
 			],
 		},
 		{

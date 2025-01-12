@@ -9,11 +9,11 @@ const Dashboard = () => {
 		<div className="w-full h-full">
 			<div className="h-full w-[96%] mx-auto pt-3 pb-9">
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-4 mb-6">
-					<div className="bg-chart-3 p-5 rounded-xl shadow-sm ">
-						<h3 className="text-foreground text-[13.5px] mb-2 font-bold">Total Sales</h3>
+					<div className="bg-[#d4d2ff] p-5 rounded-xl shadow-sm text-black">
+						<h3 className="text-[13.5px] mb-2 font-bold">Total Sales</h3>
 						<div className="flex items-center gap-2 flex-wrap">
-							<p className="text-popover-foreground text-[16.5px] font-semibold">3,671</p>
-							<span className="gap-1 text-[12px] flex items-center text-foreground">
+							<p className="text-[16.5px] font-semibold">3,671</p>
+							<span className="gap-1 text-[12px] flex items-center">
 								-0.03%
 								<TrendingUp className="w-3 h-3" />
 							</span>
@@ -31,11 +31,11 @@ const Dashboard = () => {
 							<span className="bg-primary text-[10.5px] px-1 text-white rounded-xl border border-foreground">4min</span>
 						</div>
 					</div>
-					<div className="bg-chart-3 p-5 rounded-xl shadow-sm ">
-						<h3 className="text-foreground text-[13.5px] mb-2 font-bold">Expenses</h3>
+					<div className="bg-[#d4d2ff] p-5 rounded-xl shadow-sm text-black">
+						<h3 className="text-[13.5px] mb-2 font-bold">Expenses</h3>
 						<div className="flex items-center gap-2 flex-wrap">
-							<p className="text-popover-foreground text-[16.5px] font-semibold">3,271</p>
-							<span className="gap-1 flex text-[12px] items-center text-foreground">
+							<p className="text-[16.5px] font-semibold">3,271</p>
+							<span className="gap-1 flex text-[12px] items-center">
 								-0.04%
 								<TrendingUp className="w-3 h-3" />
 							</span>

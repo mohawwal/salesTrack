@@ -18,7 +18,15 @@ import {
 	TableHeader,
 	TableRow,
 } from "../../components/ui/table";
-
+import {
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+} from "../../components/ui/dialog";
+import ReportFile from "./ReportFile";
 
 export const ReportTable = () => {
 	const taskBox = [
@@ -68,7 +76,7 @@ export const ReportTable = () => {
 
 	return (
 		<div className="p-1">
-			<Table className="overflow-x-scroll">
+			<Table>
 				<TableHeader>
 					<TableRow className="text-[12px] cursor-pointer">
 						<TableHead className="px-2 text-[12px]">Task</TableHead>
@@ -164,9 +172,21 @@ export const ReportTable = () => {
 								</div>
 							</TableCell>
 							<TableCell className="whitespace-nowrap">
-								<button>
-									<Ellipsis className="w-4 h-3" />
-								</button>
+								<Dialog>
+									<DialogTrigger>
+										<button>
+											<Ellipsis className="w-4 h-3" />
+										</button>
+									</DialogTrigger>
+									<DialogContent>
+										<DialogHeader>
+											<DialogTitle>Edit Company Profile</DialogTitle>
+											<DialogDescription>
+												<ReportFile />
+											</DialogDescription>
+										</DialogHeader>
+									</DialogContent>
+								</Dialog>
 							</TableCell>
 						</TableRow>
 					))}

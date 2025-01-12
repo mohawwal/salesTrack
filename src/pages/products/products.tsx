@@ -9,7 +9,16 @@ import {
 	TableRow,
 } from "../../components/ui/table";
 
-import { Filter } from "lucide-react";
+import {
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+} from "../../components/ui/dialog";
+
+import { Ellipsis, Filter } from "lucide-react";
 
 const Products = () => {
 	const products = [
@@ -137,9 +146,14 @@ const Products = () => {
 
 	return (
 		<div className="m-3">
-			<span className="flex items-center justify-center gap-1 hover:bg-border w-6 h-6 rounded-md">
-				<Filter className="w-4 cursor-pointer" />
-			</span>
+			<div className="flex justify-between my-3">
+				<span className="flex items-center justify-center gap-1 hover:bg-border w-6 h-6 rounded-md">
+					<Filter className="w-4 h-4 cursor-pointer" />
+				</span>
+				<div className="text-[12px] bg-chart-1 px-2 py-1 rounded-xl hover:bg-border hover:text-white cursor-pointer">
+					Add new Product
+				</div>
+			</div>
 			<Table className="w-full overflow-x-scroll">
 				<TableCaption>List of all products.</TableCaption>
 				<TableHeader>
@@ -152,6 +166,7 @@ const Products = () => {
 						<TableHead className="px-3 w-[150px]">Status</TableHead>
 						<TableHead className="px-3">Stock</TableHead>
 						<TableHead className="px-3 w-[150px]">Date Added</TableHead>
+						<TableHead></TableHead>
 					</TableRow>
 				</TableHeader>
 				<TableBody>
@@ -174,7 +189,7 @@ const Products = () => {
 							</TableCell>
 							<TableCell className="px-3 text-primary underline cursor-pointer text-[11px] whitespace-nowrap">
 								<Link to={`/supplier/${product.supplier}`}>
-								{product.supplier}
+									{product.supplier}
 								</Link>
 							</TableCell>
 							<TableCell className="px-3 w-[100px] whitespace-nowrap">
@@ -195,6 +210,21 @@ const Products = () => {
 							</TableCell>
 							<TableCell className="px-3 w-[150px] opacity-65 whitespace-nowrap">
 								{product.dateAdded}
+							</TableCell>
+							<TableCell className="whitespace-nowrap">
+								<Dialog>
+									<DialogTrigger>
+										<button>
+											<Ellipsis className="w-4 h-3" />
+										</button>
+									</DialogTrigger>
+									<DialogContent>
+										<DialogHeader>
+											<DialogTitle>Product</DialogTitle>
+											<DialogDescription>edit form</DialogDescription>
+										</DialogHeader>
+									</DialogContent>
+								</Dialog>
 							</TableCell>
 						</TableRow>
 					))}

@@ -208,7 +208,8 @@ export const SalesTable = () => {
 				<span className="flex items-center justify-center gap-1 hover:bg-border w-6 h-6 rounded-md">
 					<Filter className="w-4 h-4 cursor-pointer" />
 				</span>
-				<div className="bg-border px-2 py-1 rounded-xl hover:bg-primary hover:text-white cursor-pointer">
+				<div className="w-[200px] flex justify-around">
+				<div className="bg-border px-2 flex items-center py-1 rounded-xl hover:bg-primary hover:text-white cursor-pointer">
 					<AlertDialog>
 						<AlertDialogTrigger>
 							<p className="text-[11.5px]">Sales Chart</p>
@@ -226,6 +227,10 @@ export const SalesTable = () => {
 							</AlertDialogFooter>
 						</AlertDialogContent>
 					</AlertDialog>
+				</div>
+				<div className="text-[12px] bg-chart-1 px-2 flex items-center py-1 rounded-xl hover:bg-border hover:text-white cursor-pointer">
+						Sell Product
+					</div>
 				</div>
 			</div>
 			<Table className="overflow-x-scroll mx-2">

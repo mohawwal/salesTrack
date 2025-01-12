@@ -37,7 +37,7 @@ export const Navbar = () => {
 						className="w-6 h-6 p-1 nv:hidden block cursor-pointer hover:bg-border rounded-md"
 						onClick={handleToggleNav}
 					/>
-					<h1 className="text-[1.1rem] text-chart-1 capitalize">{pageName}</h1>
+					<h1 className="text-[1.1rem] font-bold text-chart-1 capitalize">{pageName}</h1>
 				</div>
 				{toggleNav && (
 					<div className="fixed block nv:hidden w-[85%] sm:w-[350px] bg-primary-foreground h-full z-10 top-0 left-0 border-r-[2px] border-sidebar-border ">

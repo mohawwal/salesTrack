@@ -44,6 +44,7 @@ import {
 	DropdownMenuContent,
 	DropdownMenuItem,
 } from "../components/ui/dropdown-menu";
+import AddStaffForm from "./AddStaffForm";
 const itemsLayout = [
 	{
 		title: "Products",
@@ -111,11 +112,6 @@ const companyStaffs = [
 		type: "Marking",
 		notification: 12,
 	},
-	{
-		name: "Daniel",
-		type: "Tech",
-		notification: 24,
-	},
 ];
 
 interface SideNavProps {
@@ -124,8 +120,8 @@ interface SideNavProps {
 
 const SideNav: React.FC<SideNavProps> = ({ setToggleNav }) => {
 	const removeNavFunc = () => {
-		setToggleNav(false)
-	}
+		setToggleNav(false);
+	};
 	return (
 		<div className="w-full z-50 h-full flex flex-col">
 			<div className="w-full flex justify-between items-start">
@@ -166,7 +162,10 @@ const SideNav: React.FC<SideNavProps> = ({ setToggleNav }) => {
 						</p>
 						{otherCompany.map((staff) => (
 							<DropdownMenuItem className="flex items-center justify-between">
-								<div onClick={removeNavFunc} className="w-[150px] flex items-center flex-row gap-2">
+								<div
+									onClick={removeNavFunc}
+									className="w-[150px] flex items-center flex-row gap-2"
+								>
 									<div className="border-2 rounded-md h-5 w-5 flex items-center justify-center">
 										<AudioWaveform className="h-3 w-3" />
 									</div>
@@ -207,15 +206,20 @@ const SideNav: React.FC<SideNavProps> = ({ setToggleNav }) => {
 								{companyStaffs.map((staffs) => (
 									<SidebarMenuSubItem>
 										<SidebarMenuItem>
-											<SidebarMenuButton>
-												<p className="text-[11.5px]">{staffs.name}</p>
-												<SidebarMenuBadge>
-													{staffs.notification}
-												</SidebarMenuBadge>
-											</SidebarMenuButton>
+											<Link to={`jobber/${staffs.name}`}>
+												<SidebarMenuButton>
+													<p className="text-[12px]">{staffs.name}</p>
+													<SidebarMenuBadge>
+														{staffs.notification}
+													</SidebarMenuBadge>
+												</SidebarMenuButton>
+											</Link>
 										</SidebarMenuItem>
 									</SidebarMenuSubItem>
 								))}
+								<div className="mt-1 w-full">
+									<AddStaffForm companyStaffs={companyStaffs} />
+								</div>
 							</SidebarMenuSub>
 						</div>
 						{itemsLayout.map((item) => (

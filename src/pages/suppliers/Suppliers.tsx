@@ -1,4 +1,4 @@
-import { Badge } from "lucide-react";
+import { Badge, CirclePlus } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Suppliers = () => {
@@ -31,7 +31,28 @@ const Suppliers = () => {
 	];
 	return (
 		<div className="w-[95%] my-3 mx-auto">
-			<div className="text-center flex flex-col"></div>
+			<div className="">
+				{/* new */}
+					<div className="my-5">
+						
+						<div className="flex items-center gap-[20px] cursor-pointer text-[12.5px] my-7">
+							<div>
+								<input
+									type="text"
+									placeholder="Supplier name..."
+									className=" border bg-inherit h-[30px] px-2 rounded-lg"
+								/>
+							</div>
+							<div className="flex items-centers gap-1 text-[12px] border border-border px-2 rounded-md py-[3px] hover:bg-primary">
+								<div className="flex items-center">
+									<CirclePlus className="w-[14px] h-[14px]" />
+								</div>
+								<p>Status</p>
+							</div>
+						</div>
+					</div>
+				{/* old */}
+			</div>
 			<div className="mt-4">
 				<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 cursor-pointer">
 					{supplierNames.map((name) => (
